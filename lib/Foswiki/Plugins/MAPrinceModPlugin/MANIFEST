@@ -1,0 +1,5 @@
+# Release manifest for MAPrinceModPlugin
+data/System/MAPrinceModPlugin.txt 0644 Documentation
+lib/Foswiki/Plugins/MAPrinceModPlugin.pm 0644 Perl module
+pub/System/MAPrinceModPlugin/err.png 0644 Error-Picture
+pub/System/MAPrinceModPlugin/maprince.css 0644 Css for printing

@@ -1,0 +1,56 @@
+
+/*------------------------------------------------------------------------------*/
+/*Projekt spezifische Klassen*/
+
+table.MA_table {
+  margin-top: 2px;
+  padding-top: 2px;
+  border: 1px #AAA solid;
+  border-color: #808080;
+  border-collapse: collapse;
+  empty-cells:show;
+  /*background-color: #F5F5F5;*/
+  hyphens: auto; 
+}
+
+table.MA_table tr:first-child { 
+text-align: center;
+font-weight: bold;
+color: #f9f9f9;
+background: #003c89;
+ }
+
+table.MA_table td { 
+
+}
+ 
+table.MA_table tr { 
+    /*width: auto;*/
+
+ }
+ 
+.foswikiToc {
+  display: none;
+}
+
+.patternHomePath {
+  display: none;
+}
+
+#modacContentHeading {
+  display: none;
+}
+
+.Seitenzahl {
+  display: inline;
+}
+
+img {
+   /*display:block; 
+   margin-left:auto; margin-right:auto;*/
+   max-width: 170mm;
+   max-height: 140mm;
+}
+
+tr, td, th { page-break-inside: avoid }
+
