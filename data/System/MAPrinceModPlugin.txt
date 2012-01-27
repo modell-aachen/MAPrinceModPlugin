@@ -4,7 +4,7 @@ One line description, required for extensions repository catalog.
 BuildContrib will fill in the SHORTDESCRIPTION with the value of
 $SHORTDESCRIPTION from the .pm module, or you can redefine it here if you
 prefer.
-   * Set SHORTDESCRIPTION = %$SHORTDESCRIPTION%
+   * Set SHORTDESCRIPTION = Modifies page contents for printing with GenPDFPrincePlugin to make it behave like viewfile.
 -->
 %SHORTDESCRIPTION%
 
@@ -12,7 +12,7 @@ prefer.
 
 ---++ Usage
 This Plugin is designed to work along with GenPDFPrincePlugin and check image permissions.
-<p>It will rewrite the source in img-tags to reference to local files on the server eg. =&lt;img src='/bin/viewfile/Main/Topic/MyPicture.png'&gt;= will become =&lt;img src='file:///path/to/Foswiki/pub/Main/Topic/MyPicture.png'&gt;= *IF* the user has the required permissions to view that file.
+<p>It will rewrite the source in img-tags to reference to local files on the server eg. =img src='/bin/viewfile/Main/Topic/MyPicture.png'= will become =img src='file:///path/to/Foswiki/pub/Main/Topic/MyPicture.png'= *IF* the user has the required permissions to view that file.
 </p>
 When access is denied the image will be replaced with an error-image. You can set that image in configure.
 

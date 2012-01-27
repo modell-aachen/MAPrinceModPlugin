@@ -35,7 +35,7 @@ our $VERSION = '$Rev: 9772 (2010-10-27) $';
 
 our $RELEASE = '1.0.0';
 
-our $SHORTDESCRIPTION = 'Modifies page contents for printing with GenPDFPrincePlugin to make it behave like viewfile.';
+our $SHORTDESCRIPTION = 'Modifies page contents for printing with GenPDFPrincePlugin to make it behave like viewfile.;
 
 our $NO_PREFS_IN_TOPIC = 1;
 
