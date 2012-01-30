@@ -33,9 +33,9 @@ use Foswiki::Plugins ();    # For the API version
 # extension.
 our $VERSION = '$Rev: 9772 (2010-10-27) $';
 
-our $RELEASE = '1.0.0';
+our $RELEASE = '1.0.1';
 
-our $SHORTDESCRIPTION = 'Modifies page contents for printing with GenPDFPrincePlugin to make it behave like viewfile.;
+our $SHORTDESCRIPTION = 'Modifies page contents for printing with GenPDFPrincePlugin to make it behave like viewfile.';
 
 our $NO_PREFS_IN_TOPIC = 1;
 
@@ -111,7 +111,8 @@ sub rewriteImgTag {
 
 
      # if we have access write a new image-url pointing to local directory
-     if($hasAccess) {
+     # but forbit linking to local files other than from this plugin
+     if($hasAccess && not $tagContents =~ m#file://#i ) {
        $tagContents =~ s#src=(["']).*?["']#src=\"file://$Foswiki::cfg{PubDir}/$web/$topic/$image\"#g;
      } else {
        # Insert "Access Denied" image
@@ -119,7 +120,6 @@ sub rewriteImgTag {
        $tagContents =~ s#src=(["']).*?["']#src=\"file://$Foswiki::cfg{PubDir}$deniedImage\"#g;
      }
   }
-
   return "<img$tagContents$end>";
 }
 
