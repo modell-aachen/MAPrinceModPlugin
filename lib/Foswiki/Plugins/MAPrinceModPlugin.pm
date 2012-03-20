@@ -33,7 +33,7 @@ use Foswiki::Plugins ();    # For the API version
 # extension.
 our $VERSION = '$Rev: 9772 (2010-10-27) $';
 
-our $RELEASE = '1.0.1';
+our $RELEASE = '1.0.2';
 
 our $SHORTDESCRIPTION = 'Modifies page contents for printing with GenPDFPrincePlugin to make it behave like viewfile.';
 
@@ -79,8 +79,28 @@ sub completePageHandler {
   my $user = $Foswiki::Plugins::SESSION->{user};
   $user = Foswiki::Func::getWikiName($user);
 
+  # XXX Das sind alles nur Workarounds
+  # remove all those plentiful nowraps (we like wraps)
+  $_[0] =~ s/white-space: nowrap;//g;
+  $_[0] =~ s/nowrap="nowrap"//g;
+  # remove <p></p> from tables as they are usually not desired
+  $_[0] =~ s#<td([^>]*)>\n(<p></p>|<p\s*/>)#<td$1>\n#g;
+  # limit width
+  $_[0] =~ s#width: (\d+)px;#limitWidth($1)#ige;
+
+  #$_[0] =~ s#(width|height):\s*\d+(px|%);##g;
+  #$_[0] =~ s#style="\s*"##g;
+
   # replace image tags
   $_[0] =~ s/\<img(.*?)(\/?)\>/rewriteImgTag($1, $url, $user, $3)/ige;
+}
+
+sub limitWidth {
+  my ($width) = @_;
+  if($width > 600) {
+    return "width: 600px; hyphens: auto";
+  }
+  return "width: ".$width."px;";
 }
 
 sub rewriteImgTag {

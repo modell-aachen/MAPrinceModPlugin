@@ -1,36 +1,75 @@
+html body {
+	font-size: 100% /* to change the site's font size, change .foswikiPage below */
+	font-family: Arial,Helvetica;
+	font-size:small;
+}
+
+.foswikiPage {
+        line-height:1.5em; /*S1*/
+        font-family:arial, verdana, sans-serif;
+        /* change font size here */
+        font-size: 12px;
+        min-width: 600px;
+}
+
+html>body { /* Mozilla */
+	font-size:small;	
+}
+
+
+h1 { font-size: 150%; }
+h2 { font-size: 135%; }
+h3 { font-size: 126%; }
+h4 { font-size: 118%; }
+h5 { font-size: 108%; }
+h6 { font-size: 100%; }
+
+h1, h2, h3, h4, h5, h6 {
+        background: none;
+        font-weight: normal;
+        margin: 0;
+        padding-top: .5em;
+        padding-bottom: .17em;
+        border-bottom: 1px solid #aaa;
+  	page-break-after: avoid
+}
+h3, h4, h5, h6 {
+        border-bottom: none;
+        font-weight: bold;
+}
+
+td {
+  padding: 2px;
+}
 
 /*------------------------------------------------------------------------------*/
 /*Projekt spezifische Klassen*/
 
-table.MA_table {
-  margin-top: 2px;
-  padding-top: 2px;
-  border: 1px #AAA solid;
-  border-color: #808080;
-  border-collapse: collapse;
-  empty-cells:show;
-  /*background-color: #F5F5F5;*/
-  hyphens: auto; 
+.modacHide {
+	display:none;
 }
 
-table.MA_table tr:first-child { 
-text-align: center;
-font-weight: bold;
-color: #f9f9f9;
-background: #003c89;
- }
-
-table.MA_table td { 
-
+#modacWrapper ul {
+	list-style-image:url("ModacSkinLogos/bullet.gif");
 }
- 
-table.MA_table tr { 
-    /*width: auto;*/
 
- }
+.modacBorder {
+	border: solid 1px #dddddd;
+}
+
+#modacHeading {
+        border-color:#AAAAAA;
+        border-style:none none solid;
+        border-width:1px;
+	border-collapse: collapse;
+        font-size:190%;
+        line-height: 1.1em;
+        clear:right;
+}
+
  
 .foswikiToc {
-  display: none;
+  /*display: none;*/
 }
 
 .patternHomePath {
@@ -48,9 +87,36 @@ table.MA_table tr {
 img {
    /*display:block; 
    margin-left:auto; margin-right:auto;*/
-   max-width: 170mm;
-   max-height: 140mm;
+   max-width: 140mm;
+   max-height: 185mm;
+   page-break-before: avoid
 }
+
+#kopflogo {
+  padding: 4px;
+}
+
 
 tr, td, th { page-break-inside: avoid }
 
+table.MA_table tr:first-child { 
+  text-align: center;
+  font-weight: bold;
+  color: #f9f9f9;
+  background: #003c89;
+  page-break-after: avoid
+}
+
+table.MA_table td { 
+
+}
+ 
+table.MA_table tr { 
+}
+
+table.MA_table {
+  border-style: solid;
+  border-width: thin;
+  border-collapse: collapse;
+  border-color: #000000;
+}
