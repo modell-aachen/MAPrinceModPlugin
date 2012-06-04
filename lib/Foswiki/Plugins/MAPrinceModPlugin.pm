@@ -107,7 +107,7 @@ sub rewriteImgTag {
   my $tagContents = $_[0];
   my $url = $_[1];
   my $user = $_[2];
-  my $end = $_[3];
+  my $end = $_[3] || '';
 
   my $url2 = $url;
   $url2 =~ s#http://www\.#http://#; # workaround for optional www
