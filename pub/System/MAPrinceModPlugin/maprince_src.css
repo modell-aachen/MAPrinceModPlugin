@@ -99,24 +99,18 @@ img {
 
 tr, td, th { page-break-inside: avoid }
 
-table.MA_table tr:first-child { 
+table.MA_table tr:first-child, table.Modac_Standard tr:first-child { 
   text-align: center;
   font-weight: bold;
   color: #f9f9f9;
   background: #003c89;
-  page-break-after: avoid
+  page-break-after: avoid;
 }
 
-table.MA_table td { 
-
-}
- 
-table.MA_table tr { 
-}
-
-table.MA_table {
-  border-style: solid;
-  border-width: thin;
+table.MA_table, table.Modac_Standard, table.Modac_Standard_Ohne {
+  border: solid thin #000;
   border-collapse: collapse;
-  border-color: #000000;
+}
+table.Modac_Standard th, table.Modac_Standard_Ohne th, table.Modac_Standard td, table.Modac_Standard_Ohne td {
+  border: solid 1px #000;
 }
