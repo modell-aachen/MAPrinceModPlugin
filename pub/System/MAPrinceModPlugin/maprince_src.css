@@ -114,3 +114,21 @@ table.MA_table, table.Modac_Standard, table.Modac_Standard_Ohne {
 table.Modac_Standard th, table.Modac_Standard_Ohne th, table.Modac_Standard td, table.Modac_Standard_Ohne td {
   border: solid 1px #000;
 }
+
+.Modac_Standard {
+        margin: 1em 0;
+        background: #FFFFFF;
+        border-collapse: collapse;
+        empty-cells:show;
+}
+.Modac_Standard td {
+        border: 1px #AAA solid;
+        padding-left: 3px;
+        padding-right: 3px;
+}
+.Modac_Standard tr:first-child { 
+        text-align: center; 
+        font-weight: bold; 
+        color: #FFFFFF; 
+        background: #003c89; 
+}
