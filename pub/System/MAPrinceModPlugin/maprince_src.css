@@ -33,6 +33,7 @@ h1, h2, h3, h4, h5, h6 {
         border-bottom: 1px solid #aaa;
   	page-break-after: avoid
 }
+
 h3, h4, h5, h6 {
         border-bottom: none;
         font-weight: bold;
@@ -42,8 +43,11 @@ td {
   padding: 2px;
 }
 
-/*------------------------------------------------------------------------------*/
-/*Projekt spezifische Klassen*/
+div.Princefooter{
+  border-top-style:
+  solid;border-top-width: 1px;
+  border-top-color: #AAA
+}
 
 .modacHide {
 	display:none;
@@ -80,6 +84,22 @@ td {
   display: none;
 }
 
+.modacHeaderTable {
+  margin: 1em 0;
+  border: 1px solid black;
+  border-collapse: collapse;
+  empty-cells:show;
+  background-color: #F3F3F3;
+}
+
+.modacHeaderTable td { 
+  border: 1px solid black;
+  border-color: #AAA;
+}
+ 
+.modacHeaderTable tr { 
+  border-color: #AAA;
+}
 .Seitenzahl {
   display: inline;
 }
@@ -105,12 +125,19 @@ table.MA_table tr:first-child, table.Modac_Standard tr:first-child {
   color: #f9f9f9;
   background: #003c89;
   page-break-after: avoid;
+  border-collapse: collapse;
+  border: solid 1px #AAA;
+}
+
+table.MA_table td {
+  border: solid 1px #AAA;
 }
 
 table.MA_table, table.Modac_Standard, table.Modac_Standard_Ohne {
   border: solid thin #000;
   border-collapse: collapse;
 }
+
 table.Modac_Standard th, table.Modac_Standard_Ohne th, table.Modac_Standard td, table.Modac_Standard_Ohne td {
   border: solid 1px #000;
 }
