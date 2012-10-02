@@ -1,21 +1,20 @@
 html body {
-	font-size: 100% /* to change the site's font size, change .foswikiPage below */
-	font-family: Arial,Helvetica;
-	font-size:small;
+    font-size: 100% /* to change the site's font size, change .foswikiPage below */
+    font-family: Arial,Helvetica;
+    font-size:small;
 }
 
 .foswikiPage {
-        line-height:1.5em; /*S1*/
-        font-family:arial, verdana, sans-serif;
-        /* change font size here */
-        font-size: 12px;
-        min-width: 600px;
+    line-height:1.5em; /*S1*/
+    font-family:arial, verdana, sans-serif;
+    /* change font size here */
+    font-size: 12px;
+    min-width: 600px;
 }
 
 html>body { /* Mozilla */
-	font-size:small;	
+    font-size:small;	
 }
-
 
 h1 { font-size: 150%; }
 h2 { font-size: 135%; }
@@ -25,137 +24,136 @@ h5 { font-size: 108%; }
 h6 { font-size: 100%; }
 
 h1, h2, h3, h4, h5, h6 {
-        background: none;
-        font-weight: normal;
-        margin: 0;
-        padding-top: .5em;
-        padding-bottom: .17em;
-        border-bottom: 1px solid #aaa;
-  	page-break-after: avoid
+    background: none;
+    font-weight: normal;
+    margin: 0;
+    padding-top: .5em;
+    padding-bottom: .17em;
+    border-bottom: 1px solid #aaa;
+    page-break-after: avoid
 }
 
 h3, h4, h5, h6 {
-        border-bottom: none;
-        font-weight: bold;
+    border-bottom: none;
+    font-weight: bold;
 }
 
 td {
-  padding: 2px;
+    padding: 2px;
 }
 
 div.Princefooter{
-  border-top-style:
-  solid;border-top-width: 1px;
-  border-top-color: #AAA
+    border-top-style:
+    solid;border-top-width: 1px;
+    border-top-color: #AAA
 }
 
 .modacHide {
-	display:none;
+    display:none;
 }
 
 #modacWrapper ul {
-	list-style-image:url("ModacSkinLogos/bullet.gif");
+    list-style-image:url("ModacSkinLogos/bullet.gif");
 }
 
 .modacBorder {
-	border: solid 1px #dddddd;
+    border: solid 1px #dddddd;
 }
 
 #modacHeading {
-        border-color:#AAAAAA;
-        border-style:none none solid;
-        border-width:1px;
-	border-collapse: collapse;
-        font-size:190%;
-        line-height: 1.1em;
-        clear:right;
+    border-color:#AAAAAA;
+    border-style:none none solid;
+    border-width:1px;
+    border-collapse: collapse;
+    font-size:190%;
+    line-height: 1.1em;
+    clear:right;
 }
 
- 
+
 .foswikiToc {
-  /*display: none;*/
+    /*display: none;*/
 }
 
 .patternHomePath {
-  display: none;
+    display: none;
 }
 
 #modacContentHeading {
-  display: none;
+    display: none;
 }
 
 .modacHeaderTable {
-  margin: 1em 0;
-  border: 1px solid black;
-  border-collapse: collapse;
-  empty-cells:show;
-  background-color: #F3F3F3;
+    margin: 1em 0;
+    border: 1px solid black;
+    border-collapse: collapse;
+    empty-cells:show;
+    background-color: #F3F3F3;
 }
 
 .modacHeaderTable td { 
-  border: 1px solid black;
-  border-color: #AAA;
-}
- 
-.modacHeaderTable tr { 
-  border-color: #AAA;
-}
-.Seitenzahl {
-  display: inline;
+    border: 1px solid black;
+    border-color: #AAA;
 }
 
-img {
-   /*display:block; 
-   margin-left:auto; margin-right:auto;*/
-   max-width: 140mm;
-   max-height: 185mm;
-   page-break-before: avoid
+.modacHeaderTable tr { 
+    border-color: #AAA;
+}
+.Seitenzahl {
+    display: inline;
 }
 
 #kopflogo {
-  padding: 4px;
+    padding: 4px;
 }
 
+img {
+    /*display:block; 
+    margin-left:auto; margin-right:auto;*/
+    max-width: 140mm;
+    max-height: 185mm;
+    page-break-before: avoid
+}
 
 tr, td, th { page-break-inside: avoid }
 
 table.MA_table tr:first-child, table.Modac_Standard tr:first-child { 
-  text-align: center;
-  font-weight: bold;
-  color: #f9f9f9;
-  background: #003c89;
-  page-break-after: avoid;
-  border-collapse: collapse;
-  border: solid 1px #AAA;
+    text-align: center;
+    font-weight: bold;
+    color: #f9f9f9;
+    background: #003c89;
+    page-break-after: avoid;
+    border-collapse: collapse;
+    border: solid 1px #AAA;
 }
 
 table.MA_table td {
-  border: solid 1px #AAA;
+    border: solid 1px #AAA;
 }
 
 table.MA_table, table.Modac_Standard, table.Modac_Standard_Ohne {
-  border: solid thin #000;
-  border-collapse: collapse;
+    border: solid thin #000;
+    border-collapse: collapse;
 }
 
 table.Modac_Standard th, table.Modac_Standard_Ohne th, table.Modac_Standard td, table.Modac_Standard_Ohne td {
-  border: solid 1px #000;
+    border: solid 1px #000;
 }
 
 .Modac_Standard {
-        margin: 1em 0;
-        background: #FFFFFF;
-        border-collapse: collapse;
-        empty-cells:show;
+    margin: 1em 0;
+    background: #FFFFFF;
+    border-collapse: collapse;
+    empty-cells:show;
 }
 .Modac_Standard td {
-        border: 1px #AAA solid;
-        padding-left: 3px;
-        padding-right: 3px;
+    border: 1px #AAA solid;
+    padding-left: 3px;
+    padding-right: 3px;
 }
 .Modac_Standard tr:first-child { 
-        text-align: center; 
-        font-weight: bold; 
-        color: #FFFFFF; 
-        background: #003c89; 
+    text-align: center; 
+    font-weight: bold; 
+    color: #FFFFFF; 
+    background: #003c89; 
 }
