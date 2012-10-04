@@ -117,43 +117,118 @@ img {
 
 tr, td, th { page-break-inside: avoid }
 
-table.MA_table tr:first-child, table.Modac_Standard tr:first-child { 
-    text-align: center;
-    font-weight: bold;
-    color: #f9f9f9;
-    background: #003c89;
-    page-break-after: avoid;
-    border-collapse: collapse;
-    border: solid 1px #AAA;
-}
-
-table.MA_table td {
-    border: solid 1px #AAA;
-}
-
-table.MA_table, table.Modac_Standard, table.Modac_Standard_Ohne {
-    border: solid thin #000;
-    border-collapse: collapse;
-}
-
-table.Modac_Standard th, table.Modac_Standard_Ohne th, table.Modac_Standard td, table.Modac_Standard_Ohne td {
-    border: solid 1px #000;
-}
-
-.Modac_Standard {
-    margin: 1em 0;
-    background: #FFFFFF;
-    border-collapse: collapse;
-    empty-cells:show;
-}
-.Modac_Standard td {
-    border: 1px #AAA solid;
-    padding-left: 3px;
-    padding-right: 3px;
-}
-.Modac_Standard tr:first-child { 
+.Modac_Standard tbody:first-child tr:first-child, .Modac_Standard thead tr:first-child {
     text-align: center; 
     font-weight: bold; 
-    color: #FFFFFF; 
+    color: #f9f9f9; 
     background: #003c89; 
+    border-collapse: collapse;
+    border: solid 1px #AAA;
 }
+
+/* -------------------------- Modac Tables ----------------------------*/
+
+/*-------- Modac_Standard = MA_table --------*/
+.Modac_Standard {
+	margin: 1em 0;
+	background: #f9f9f9;
+	border-collapse: collapse;
+	empty-cells:show;
+ }
+.Modac_Standard td, .Modac_Standard th {
+	border: 1px #AAA solid;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+.Modac_Standard tbody:first-child tr:first-child, .Modac_Standard thead tr:first-child {
+	page-break-after: avoid;
+	text-align: center; 
+	font-weight: bold; 
+	color: #f9f9f9; 
+	background: #003c89; 
+}
+/*-------- /Modac_Standard = MA_table --------*/
+
+/*-------- Modac_Standard_Ohne --------*/
+.Modac_Standard_Ohne {
+	margin: 1em 0;
+	background: #f9f9f9;
+	border-collapse: collapse;
+	empty-cells:show;
+ }
+.Modac_Standard_Ohne td, .Modac_Standard_Ohne th {
+	border: 1px #AAA solid;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+/*-------- /Modac_Standard_Ohne --------*/
+
+/*-------- Modac_Standard_Leer --------*/
+.Modac_Standard_Leer {
+	margin: 1em 0;
+	border-width: 0px;
+	border-collapse: collapse;
+	empty-cells:show;
+ }
+.Modac_Standard_Leer td, .Modac_Standard_Leer th {
+	padding-left: 3px;
+	padding-right: 3px;
+}
+/*-------- /Modac_Standard_Leer --------*/
+
+/*-------- Grey_Standard* --------------*/
+.Grey_Standard, .Grey_Standard_Ohne {
+	background: none repeat scroll 0 0 #ffffff;
+	border-collapse: collapse;
+	empty-cells: show;
+	margin: 1em 0;
+}
+.Grey_Standard td, .Grey_Standard th, .Grey_Standard_Ohne td, .Grey_Standard_Ohne th {
+	border: 1px solid #808080;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+.Grey_Standard tbody:first-child tr:first-child, .Grey_Standard thead tr:first-child {
+	background: none repeat scroll 0 0 #cccccc;
+	page-break-after: avoid;
+	color: black;
+	font-weight: bold;
+	text-align: center;
+}
+/*-------- /Grey_Standard* -------------*/
+
+/*-------- deprecated: MA_table --------*/
+.MA_table {
+	margin: 1em 0;
+	background: #f9f9f9;
+	border: 1px #AAA solid;
+	border-collapse: collapse;
+	empty-cells:show;
+}
+.MA_table td {
+	border: 1px #AAA solid;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+.MA_table tr:first-child { 
+	page-break-after: avoid;
+	text-align: center; 
+	font-weight: bold; 
+	color: #f9f9f9; 
+	background: #003c89; 
+}
+.MA_table_controlling {
+	margin: 1em 1em 1em 0;
+	background: #f9f9f9;
+	border: 1px #AAA solid;
+	border-collapse: collapse;
+	empty-cells:show;
+}
+.MA_table_controlling tr:first-child {
+	page-break-after: avoid;
+	text-align: center; 
+	font-weight: bold; 
+	color: #f9f9f9; 
+	background: #003c89; 
+}
+/*-------- /MA_table --------*/
