@@ -1,5 +1,35 @@
 %TMPL:INCLUDE{"view"}%
 
+%TMPL:DEF{"printHeaderHeight"}%5.0cm%TMPL:END%
+%TMPL:DEF{"printFooterHeight"}%2.0cm%TMPL:END%
+%TMPL:DEF{"printLeftMargin"}%2.0cm%TMPL:END%
+%TMPL:DEF{"printRightMargin"}%1.0cm%TMPL:END%
+%TMPL:DEF{"printFormat"}%A4%TMPL:END%
+
+%TMPL:DEF{"Princeheader"}%%TMPL:P{"top"}%%TMPL:END%
+
+%TMPL:DEF{"Princefooter"}%<div style="text-align:right;font-size:73%;line-height:150%;border-top:1px solid black;">
+<!--img width="25%" src="" float="left" align="left" style="padding-top: 2px"-->
+%IF{"defined CONTENT_LANGUAGE AND $CONTENT_LANGUAGE='de'" then="$percentTMPL:P{PrincefooterText_de}$percent"}%
+%IF{"defined CONTENT_LANGUAGE AND $CONTENT_LANGUAGE='en'" then="$percentTMPL:P{PrincefooterText_en}$percent"}%
+%IF{"not defined CONTENT_LANGUAGE OR ($CONTENT_LANGUAGE!='en' AND $CONTENT_LANGUAGE!='de')" then="$percentTMPL:P{PrincefooterText_default}$percent"}%
+</div>%TMPL:END%
+%TMPL:DEF{"PrincefooterText_de"}%Dieser Ausdruck ist eine Kopie und unterliegt nicht dem &Auml;nderungsdienst.<br>Der jeweilige Benutzer hat sich vor Gebrauch von der Aktualit&auml;t der Kopie zu vergewissern.<br />Druckdatum: %DATE%%TMPL:END%
+%TMPL:DEF{"PrincefooterText_en"}%This printout is a copy and not subject to updating service.<br />Before use, the respective user has to make sure that the copy is up to date.<br />Print date: %DATE%%TMPL:END%
+%TMPL:DEF{"PrincefooterText_default"}%%MAKETEXT{"This printout is a copy and not subject to updating service.<br />Before use, the respective user has to make sure that the copy is up to date.<br />Print date:"}% %DATE%%TMPL:END%
+
+%TMPL:DEF{"printPageCounter"}%
+%IF{"defined CONTENT_LANGUAGE AND $CONTENT_LANGUAGE='de'" then="$percentTMPL:P{printPageCounter_de}$percent"}%
+%IF{"defined CONTENT_LANGUAGE AND $CONTENT_LANGUAGE='en'" then="$percentTMPL:P{printPageCounter_en}$percent"}%
+%IF{"not defined CONTENT_LANGUAGE OR ($CONTENT_LANGUAGE!='en' AND $CONTENT_LANGUAGE!='de')" then="$percentTMPL:P{printPageCounter_default}$percent"}%
+%TMPL:END%
+%TMPL:DEF{"printPageCounter_default"}%"%MAKETEXT{"Page"}% " counter(page) "\00A0%MAKETEXT{"of"}%\00A0" counter(pages)%TMPL:END%
+%TMPL:DEF{"printPageCounter_en"}%"Page " counter(page) "\00A0of\00A0" counter(pages)%TMPL:END%
+%TMPL:DEF{"printPageCounter_de"}%"Seite " counter(page) "\00A0von\00A0" counter(pages)%TMPL:END%
+
+%{"----------------------------------------------------------------"}%
+%{"It is unlikely you want to customize anything below this line..."}%
+
 %TMPL:DEF{"logo"}%%TMPL:END%
 %TMPL:DEF{"bottombar"}%%TMPL:END%
 %TMPL:DEF{"topicactionbuttonsTOP"}%%TMPL:END%
@@ -27,11 +57,11 @@
 %TMPL:DEF{"defaultstyle"}%
 <style>
 @page {
-  margin: 1cm;
-  margin-left: 2cm;
-  margin-top: 5.0cm;
-  margin-bottom: 2.0cm;
-  /*size: A4 landscape;*/
+  margin-right: %TMPL:P{"printRightMargin"}%;
+  margin-left: %TMPL:P{"printLeftMargin"}%;
+  margin-top: %TMPL:P{"printHeaderHeight"}%;
+  margin-bottom: %TMPL:P{"printFooterHeight"}%;
+  size: %TMPL:P{"printFormat"}%%IF{"$'URLPARAM{landscape}' = '1' or ($'URLPARAM{landscape}' = '' and $LANDSCAPE = '1')" then=" landscape"}%;
 
   @top {
     content: flow(Princeheader)
@@ -51,10 +81,12 @@ div.Princefooter {
    flow: static(Princefooter)
 }
 span.Seitenzahl {
-   content: "%MAKETEXT{"Page"}% " counter(page) "\00A0%MAKETEXT{"of"}%\00A0" counter(pages)
+   content: %TMPL:P{"printPageCounter"}%
 }
 </style>
 %TMPL:END%
+
+%TMPL:DEF{"modacPageNr"}%<span class="Seitenzahl"></span>%TMPL:END% 
 
 %TMPL:DEF{"main"}%
 <div class="foswikiPage">
@@ -79,20 +111,18 @@ span.Seitenzahl {
 
 %TMPL:DEF{"content"}%<div class="foswikiTopic">%TMPL:P{"broadcastmessage"}% %TEXT%</div><!-- /foswikiTopic-->%TMPL:END%
 
+%{"Princefooter must be on the first page as well, or it won't be shown on all pages"}%
 %TMPL:DEF{"topheaderbody"}%
-<div class="Princeheader">%TMPL:P{"top"}%</div>
-<div class="Princefooter" style="text-align:right;font-size:73%;line-height:150%;">
-<!--img width="25%" src="" float="left" align="left" style="padding-top: 2px"-->
-%IF{"defined CONTENT_LANGUAGE AND $CONTENT_LANGUAGE='de'" then="Dieser Ausdruck ist eine Kopie und unterliegt nicht dem Änderungsdienst.<br>Der jeweilige Benutzer hat sich vor Gebrauch von der Aktualität der Kopie zu vergewissern.<br />Druckdatum:"}%%IF{"defined CONTENT_LANGUAGE AND $CONTENT_LANGUAGE='en'" then="This printout is a copy and not subject to updating service.<br />Before use, the respective user has to make sure that the copy is up to date.<br />Print date:"}%%IF{"not defined CONTENT_LANGUAGE OR ($CONTENT_LANGUAGE!='en' AND $CONTENT_LANGUAGE!='de')" then="%MAKETEXT{"This printout is a copy and not subject to updating service.<br />Before use, the respective user has to make sure that the copy is up to date.<br />Print date:"}%"}% %DATE%
-</div>
+<div class="Princeheader">%TMPL:P{"Princeheader"}%</div>
+<div class="Princefooter">%TMPL:P{"Princefooter"}%</div>
 %TMPL:END%
+
 %TMPL:DEF{"patterntopiccontents"}%
 %TMPL:P{"topheaderbody"}%
 %TMPL:P{"contentheader"}%
 %TMPL:P{"formtop"}%
-%TMPL:P{"formtop"}%
-%TMPL:P{"attachmentstop"}%<div class="patternContent">
-%TMPL:P{"content"}%
+%TMPL:P{"attachmentstop"}%
+<div class="patternContent">%TMPL:P{"content"}%</div>
 %TMPL:P{"bottomcontent"}%
 %TMPL:END%
 

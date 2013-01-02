@@ -2,5 +2,6 @@
 data/System/MAPrinceModPlugin.txt 0644 Documentation
 templates/viewprint.modac.tmpl 0644
 lib/Foswiki/Plugins/MAPrinceModPlugin.pm 0644 Perl module
+locale/MAPrinceModPlugin/de.po 0644
 pub/System/MAPrinceModPlugin/err.png 0644 Error-Picture
 pub/System/MAPrinceModPlugin/maprince.css 0644 Css for printing
