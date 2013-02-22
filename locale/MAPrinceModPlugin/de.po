@@ -24,3 +24,18 @@ msgstr "Seite"
 
 msgid "of"
 msgstr "von"
+
+msgid "PDF-Options"
+msgstr "PDF-Optionen"
+
+msgid "Please choose format:"
+msgstr "Bitte Format wählen:"
+
+msgid "Print in portrait mode"
+msgstr "Im Hochformat drucken"
+
+msgid "Print in landscape mode"
+msgstr "Im Querformat drucken"
+
+msgid "Generate PDF"
+msgstr "PDF erzeugen"
