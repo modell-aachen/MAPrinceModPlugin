@@ -76,7 +76,7 @@ td {
 }
 
 #modacWrapper ul {
-	list-style-image:url("ModacSkinLogos/bullet.gif");
+	list-style-image:url("../ModacSkinTheme/ModacSkinLogos/bullet.gif");
 }
 
 .modacBorder {
