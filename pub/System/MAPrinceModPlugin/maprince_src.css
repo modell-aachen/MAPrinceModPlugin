@@ -100,9 +100,8 @@ td {
 	clear:right;
 }
 
-
-.foswikiToc {
-	/*display: none;*/
+#modacWrapper .foswikiToc ul {
+	list-style: none outside none;
 }
 
 .patternHomePath {
