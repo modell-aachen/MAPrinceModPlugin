@@ -77,6 +77,13 @@ td {
 
 #modacWrapper ul {
 	list-style-image:url("../ModacSkinTheme/ModacSkinLogos/bullet.gif");
+	padding-left: 15px;
+	margin-left: 5px;
+}
+
+#modacWrapper ul ul {
+	padding-left: 3px;
+	margin-left: 3px;
 }
 
 .modacBorder {
