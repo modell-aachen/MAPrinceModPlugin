@@ -23,6 +23,14 @@ h4 { font-size: 118%; }
 h5 { font-size: 108%; }
 h6 { font-size: 100%; }
 
+/* Shrink headers in tables */
+table h1 { font-size: 125%; }
+table h2 { font-size: 117%; }
+table h3 { font-size: 113%; }
+table h4 { font-size: 109%; }
+table h5 { font-size: 104%; }
+table h6 { font-size: 100%; }
+
 h1, h2, h3, h4, h5, h6 {
 	background: none;
 	font-weight: normal;
