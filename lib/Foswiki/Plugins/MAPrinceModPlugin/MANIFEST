@@ -3,6 +3,7 @@ data/System/MAPrinceModPlugin.txt 0644 Documentation
 data/System/MAPrinceModPrintDialog.txt 0644
 templates/viewprint.modac.tmpl 0644
 lib/Foswiki/Plugins/MAPrinceModPlugin.pm 0644 Perl module
+lib/Foswiki/Plugins/MAPrinceModPlugin/Config.spec 0644
 lib/Foswiki/Plugins/SafeWikiPlugin/Signatures/MAPrinceModPlugin.pm 0644
 locale/MAPrinceModPlugin/de.po 0644
 pub/System/MAPrinceModPlugin/err.png 0644 Error-Picture
