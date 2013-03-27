@@ -1,29 +1,5 @@
 %TMPL:INCLUDE{"view"}%
-
-%TMPL:DEF{"printHeaderHeight"}%5.0cm%TMPL:END%
-%TMPL:DEF{"printFooterHeight"}%2.0cm%TMPL:END%
-%TMPL:DEF{"printLeftMargin"}%2.0cm%TMPL:END%
-%TMPL:DEF{"printRightMargin"}%1.0cm%TMPL:END%
-%TMPL:DEF{"printFormat"}%A4%TMPL:END%
-
-%TMPL:DEF{"Princeheader"}%%TMPL:P{"top"}%%TMPL:END%
-
-%TMPL:DEF{"Princefooter"}%<div style="text-align:right;font-size:73%;line-height:150%;border-top:1px solid black;">
-%SWITCHTMPL{"%CONTENT_LANGUAGE%" prefix="PrincefooterText_"}%
-</div>%TMPL:END%
-%TMPL:DEF{"PrincefooterText_de"}%Dieser Ausdruck ist eine Kopie und unterliegt nicht dem &Auml;nderungsdienst.<br>Der jeweilige Benutzer hat sich vor Gebrauch von der Aktualit&auml;t der Kopie zu vergewissern.<br />Druckdatum: %DATE%%TMPL:END%
-%TMPL:DEF{"PrincefooterText_en"}%This printout is a copy and not subject to updating service.<br />Before use, the respective user has to make sure that the copy is up to date.<br />Print date: %DATE%%TMPL:END%
-%TMPL:DEF{"PrincefooterText_default"}%%MAKETEXT{"This printout is a copy and not subject to updating service.<br />Before use, the respective user has to make sure that the copy is up to date.<br />Print date:"}% %DATE%%TMPL:END%
-
-%TMPL:DEF{"printPageCounter"}%
-%SWITCHTMPL{"%CONTENT_LANGUAGE%" prefix="printPageCounter_"}%
-%TMPL:END%
-%TMPL:DEF{"printPageCounter_default"}%"%MAKETEXT{"Page"}% " counter(page) "\00A0%MAKETEXT{"of"}%\00A0" counter(pages)%TMPL:END%
-%TMPL:DEF{"printPageCounter_en"}%"Page " counter(page) "\00A0of\00A0" counter(pages)%TMPL:END%
-%TMPL:DEF{"printPageCounter_de"}%"Seite " counter(page) "\00A0von\00A0" counter(pages)%TMPL:END%
-
-%{"----------------------------------------------------------------"}%
-%{"It is unlikely you want to customize anything below this line..."}%
+%TMPL:INCLUDE{"ModacPrintLayout"}%
 
 %TMPL:DEF{"logo"}%%TMPL:END%
 %TMPL:DEF{"bottombar"}%%TMPL:END%
