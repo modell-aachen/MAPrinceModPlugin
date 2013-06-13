@@ -39,3 +39,6 @@ msgstr "Im Querformat drucken"
 
 msgid "Generate PDF"
 msgstr "PDF erzeugen"
+
+msgid "Cancel"
+msgstr "Abbrechen"

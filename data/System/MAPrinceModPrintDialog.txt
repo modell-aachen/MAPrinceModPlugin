@@ -11,7 +11,8 @@
     <br />
     <input type="radio" name="landscape" value="1" %IF{"$'URLPARAM{landscape}' = '1'" then="checked='checked'"}%><img src="%PUBURLPATH%/%SYSTEMWEB%/FamFamFamSilkCompanion1Icons/page_landscape_shot.png" /> %MAKETEXT{"Print in landscape mode"}% </input>
 </p><p>
-    <a class="jqUIDialogButton jqUIDialogSubmit">%MAKETEXT{"Generate PDF"}%</a>
+    <a class="jqUIDialogButton jqUIDialogSubmit {icon: 'ui-icon-circle-check'}">%MAKETEXT{"Generate PDF"}%</a>
+    <a class="jqUIDialogButton jqUIDialogClose {icon: 'ui-icon-cancel'}">%MAKETEXT{"Cancel"}%</a>
 </p>
 </form>
 </div>
