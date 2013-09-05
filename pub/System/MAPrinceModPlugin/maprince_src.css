@@ -71,7 +71,7 @@ td {
         display: none;
 }
 
-.modacHide {
+.modacHide, .modacPrintHide {
 	display:none;
 }
 

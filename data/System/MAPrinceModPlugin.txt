@@ -34,6 +34,9 @@ You will need to create a =ModacPrintLayoutTemplate= in your customizing skin, e
 | =printPageCounter= | This is the content of the page counter that you can print with =%%NOP%TMPL:P{"modacPageNr"}%=.%BR%If you only want to modify the text you probably want to change =printPageCounter_xx= instead. | _TML_ |
 | =printPageCounter_xx= %BR% =printPageCounter_en= %BR% =printPageCounter_de= %BR% =printPageCounter_default= | When the default =printPageCounter= is used one of these definitions will be used according to the =%%NOP%CONTENT_LANGUAGE%=.%BR%As with =PrincefooterText_xx= you can add any language you like. | _TML_ |
 
+---+++ Hiding stuff in the printout
+If you add the _css-class_ =modacPrintHide= to your element it will be hidden in the printout.
+
 ---++ Installation Instructions
 Install GenPDFPrincePlugin and this Plugin.
 <br />
