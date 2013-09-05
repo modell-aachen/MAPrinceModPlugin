@@ -34,6 +34,12 @@ You will need to create a =ModacPrintLayoutTemplate= in your customizing skin, e
 | =printPageCounter= | This is the content of the page counter that you can print with =%%NOP%TMPL:P{"modacPageNr"}%=.%BR%If you only want to modify the text you probably want to change =printPageCounter_xx= instead. | _TML_ |
 | =printPageCounter_xx= %BR% =printPageCounter_en= %BR% =printPageCounter_de= %BR% =printPageCounter_default= | When the default =printPageCounter= is used one of these definitions will be used according to the =%%NOP%CONTENT_LANGUAGE%=.%BR%As with =PrincefooterText_xx= you can add any language you like. | _TML_ |
 
+---+++ Customizing the watermark
+There are two template definitions that controll the watermark:
+| *definition* | *Explanation* | *Format to use* |
+| =printWatermarkCondition= | Enter a condition when the watermark is to be displayed.%BR%Example:<pre>%%NOP%TMPL:DEF{"printWatermarkCondition"}%context KVPIsDiscussion%%NOP%TMPL:END%</pre> | See =IF= conditions. |
+| =printWatermark= | This is the watermark that will be overlayed. It should be transparent, so the text below is still readable. | _TML_ |
+
 ---+++ Hiding stuff in the printout
 If you add the _css-class_ =modacPrintHide= to your element it will be hidden in the printout.
 

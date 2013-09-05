@@ -84,7 +84,7 @@ span.Seitenzahl {
 
 %{"Princefooter must be on the first page as well, or it won't be shown on all pages"}%
 %TMPL:DEF{"topheaderbody"}%
-<div class="Princeheader">%TMPL:P{"Princeheader"}%</div>
+<div class="Princeheader">%TMPL:P{"Princeheader"}%%IF{"%TMPL:P{"printWatermarkCondition"}%" then="<table style='top:0px;rm:%TMPL:P{"printWatermarkTop"}%;position:absolute;z-index: 99;width:100%;height:100%;'><tr><td style='text-align:center;vertical-align:middle'>$percentTMPL:P{printWatermark}$percent</td></tr></table>"}%</div>
 <div class="Princefooter">%TMPL:P{"Princefooter"}%</div>
 %TMPL:END%
 

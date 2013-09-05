@@ -22,3 +22,8 @@
 %TMPL:DEF{"printPageCounter_en"}%"Page " counter(page) "\00A0of\00A0" counter(pages)%TMPL:END%
 %TMPL:DEF{"printPageCounter_de"}%"Seite " counter(page) "\00A0von\00A0" counter(pages)%TMPL:END%
 
+%{"Optional: Watermark for discussions"}%
+%{"Enter a condition for the watermark, a suitable example would be: context KVPIsDiscussion"}%
+%TMPL:DEF{"printWatermarkCondition"}%0%TMPL:END%
+%{"Watermark to display, will be layed over the topic (give it transparency!)"}%
+%TMPL:DEF{"printWatermark"}%<img src='%PUBURLPATH%/%SYSTEMWEB%/MAPrinceModPlugin/draft_%IF{"'%CONTENT_LANGUAGE{default="%LANGUAGE%"}%'=~'de'" then="%CONTENT_LANGUAGE{default="%LANGUAGE%"}%" else="en"}%.png' />%TMPL:END%
