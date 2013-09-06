@@ -33,7 +33,7 @@ use Foswiki::Plugins ();    # For the API version
 # extension.
 our $VERSION = '$Rev: 9772 (2010-10-27) $';
 
-our $RELEASE = '1.0.7';
+our $RELEASE = '1.0.8';
 
 our $SHORTDESCRIPTION = 'Modifies page contents for printing with GenPDFPrincePlugin.';
 
