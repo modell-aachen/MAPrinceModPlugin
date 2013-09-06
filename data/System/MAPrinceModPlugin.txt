@@ -16,6 +16,24 @@ This Plugin is designed to work along with GenPDFPrincePlugin and check image pe
 </p>
 When access is denied the image will be replaced with an error-image. You can set that image in configure.
 
+---++ Customization
+---+++ Customizing the page
+You will need to create a =ModacPrintLayoutTemplate= in your customizing skin, eg. =Custom.CustomSkinModacPrintLayoutTemplate=. You can use [[%SYSTEMWEB%.ModacPrintLayoutTemplate][%SYSTEMWEB%.ModacPrintLayoutTemplate]] as template and remove the options you do not need.
+| *Definition* | *Explanation* | *Format to use* |
+| *layout* |||
+| =printHeaderHeight= | This is the height of the header. | _css_, eg. =50px;= |
+| =printFooterHeight= | This is the height of the footer. | _css_, eg. =50px;= |
+| =printLeftMargin= | This is the left margin of the page. | _css_, eg. =2cm;= |
+| =printRightMargin= | This is the right margin of the page. | _css_, eg. =1cm;= |
+| =printFormat= | Paper size | A4, letter, etc. |
+| *header/footer* |||
+| =Princeheader= | This is the content of the header and will normally consist of =%%NOP%TMPL:P{"top"}%= | _TML_ |
+| =Princefooter= | This is the content of the footer and will normally consist of a line and some text below.%BR%If you only want to modify the text you most likely want to look at =PrincefooterText_xx= | _TML_ |
+| =PrincefooterText_xx= %BR% =PrincefooterText_en= %BR% =PrincefooterText_de= %BR% =PrincefooterText_default= | With the default =Princefooter= one of these definitions will be printed on the bottom of the page according to the =%%NOP%CONTENT_LANGUAGE%=.%BR%If =%%NOP%CONTENT_LANGUAGE%= is set to 'de' the definition =PrincefooterText_de= will be used, when it is set to 'en' it will use =PrincefooterText_en= etc.. When =%%NOP%CONTENT_LANGUAGE%= is set to 'fr' but there is no =PrincefooterText_fr= it will default to =PrincefooterText_default=.%BR%You can add any =PrincefooterText_xx= you like. | _TML_ |
+| *page counter* |||
+| =printPageCounter= | This is the content of the page counter that you can print with =%%NOP%TMPL:P{"modacPageNr"}%=.%BR%If you only want to modify the text you probably want to change =printPageCounter_xx= instead. | _TML_ |
+| =printPageCounter_xx= %BR% =printPageCounter_en= %BR% =printPageCounter_de= %BR% =printPageCounter_default= | When the default =printPageCounter= is used one of these definitions will be used according to the =%%NOP%CONTENT_LANGUAGE%=.%BR%As with =PrincefooterText_xx= you can add any language you like. | _TML_ |
+
 ---++ Installation Instructions
 Install GenPDFPrincePlugin and this Plugin.
 <br />
