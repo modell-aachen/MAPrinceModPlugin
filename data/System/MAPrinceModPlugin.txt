@@ -43,6 +43,16 @@ There are two template definitions that controll the watermark:
 ---+++ Hiding stuff in the printout
 If you add the _css-class_ =modacPrintHide= to your element it will be hidden in the printout.
 
+---++ Print-dialog
+---+++ Using the dialog
+To use the default print dialog use this link:
+<pre>
+%%NOP%IF{"context MAPrinceModPluginEnabled" then="&lt;a href=\"%%NOP%SCRIPTURL{"view"}%/%%NOP%SYSTEMWEB%/MAPrinceModPrintDialog?skin=text&amp;section=dialog&amp;pweb=%%NOP%ENCODE{"%%NOP%INCLUDINGWEB%" type="url"}%&amp;ptopic=%%NOP%ENCODE{"%%NOP%INCLUDINGTOPIC%" type="url"}%&amp;landscape=%%NOP%LANDSCAPE{default="0"}%\" class=\"jqUIDialogLink modacPrintHide\"&gt;%%NOP%MAKETEXT{"PDF-Print"}%&lt;/a&gt;
+"}%
+</pre>
+%X% You will also need a =%%NOP%JQREQUIRE{"ui::dialog"}%= somewhere, however on standard _ModacSkin_ installations this will be present by default.%BR%
+It will generate a dialog with portrait/landscape selection. If you want landscape to be pre-selected, set =LANDSCAPE=1= in your =WebPreferences=, =SitePreferences= or topic preferences.
+
 ---++ Installation Instructions
 Install GenPDFPrincePlugin and this Plugin.
 <br />
