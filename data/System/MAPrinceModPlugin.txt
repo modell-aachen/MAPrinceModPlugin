@@ -52,6 +52,48 @@ To use the default print dialog use this link:
 </pre>
 %X% You will also need a =%%NOP%JQREQUIRE{"ui::dialog"}%= somewhere, however on standard _ModacSkin_ installations this will be present by default.%BR%
 It will generate a dialog with portrait/landscape selection. If you want landscape to be pre-selected, set =LANDSCAPE=1= in your =WebPreferences=, =SitePreferences= or topic preferences.
+---+++ Adding URL parameters
+If you want to use additional URL parameters you will neet to tell the dialog to use them and what they are.%BR%
+Set =printParams= to a comma-separated list of parameters to use.
+
+For example in order to amend the skin variable and you also expect an already present URL parameter called =MyParameter= use a print command like this:
+<pre>
+%%NOP%IF{"context MAPrinceModPluginEnabled" then="&lt;a href=\"%%NOP%SCRIPTURL{"view"}%/%%NOP%SYSTEMWEB%/MAPrinceModPrintDialog?skin=text&amp;section=dialog&amp;pweb=%%NOP%ENCODE{"%%NOP%INCLUDINGWEB%" type="url"}%&amp;ptopic=%%NOP%ENCODE{"%%NOP%INCLUDINGTOPIC%" type="url"}%&amp;landscape=%%NOP%LANDSCAPE{default="0"}%%RED%&amp;printParams=skin,MyParam&skin=MySkin,%%NOP%SKIN%&amp;MyParam=%%NOP%URLPARAM{"MyParam"}%%ENDCOLOR%\" class=\"jqUIDialogLink modacPrintHide\"&gt;%%NOP%MAKETEXT{"PDF-Print"}%&lt;/a&gt;
+"}%
+</pre>
+%X% You need _FILTERPLUGIN_ enabled for this feature to work.
+
+---++ PublishPlugin
+If you want to use _PublishPlugin_ to publish a whole web, there are some changes to be made.
+   * configure _PublishPlugin_: Tell _PublishPlugin_ to use prince; change ={PublishPlugin}{PDFCmd}= to something like this (*change directories* according to your installation):<pre>
+/usr/bin/prince -i html5 -o %%NOP%FILE|F% %%NOP%FILES|F% -s /var/www/qwiki/pub/System/MAPrinceModPlugin/maprince.css
+</pre>
+   * configure _KVPPlugin_: Make sure the line ='uncontrolled' => 1= is present in ={Extensions}{KVPPlugin}{uncontrolledRow}=; your configuration could look like this:<pre>
+{
+  %RED%'uncontrolled' => 1,%ENDCOLOR%
+  'righttab' => 'Old Discussion',
+  'approved' => 1,
+  'message' => 'This topic is not under any workflow.',
+  'lefttab' => 'Info Page'
+}
+</pre>
+   * =CustomSkinTopHeadTemplate=: You will need to change the =TopHeadTemplate= of your customized skin. Add these definitions:<pre>
+%{&lt;verbatim class="tml" /&gt;}%
+%%NOP%TMPL:DEF{"top_head"}%%%NOP%IF{"$'GETWORKFLOWROW{uncontrolled}'!=1" then="$percentTMPL:P{top_head_kvp}$percent" else="$percentTMPL:P{top_head_standard}$percent"}%%NOP%%TMPL:END%
+%{&lt;/verbatim&gt;}%
+
+%{&lt;verbatim class="tml" /&gt;}%
+%%NOP%TMPL:DEF{"top_head_kvp"}%%%NOP%IF{"$'GETWORKFLOWROW{approved}'!='1'" then="$percentTMPL:P{top_head_discussion}$percent" else="$percentTMPL:P{top_head_approved}$percent"}%%%NOP%TMPL:END%
+%{&lt;/verbatim&gt;}%
+</pre>
+   * Copy =%SYSTEMWEB%/PublishPluginModacDialog= to a web of your choosing.
+   * Set these topic preferences:
+      * =DEFAULTWEB=: Preselection for web to print; defaults to current web.
+      * =OUTWEBTOPIC=: =Web.Topic= where the result should be attached to; defaults to =<i>WebToPublish</i>.%%NOP%EXPORTTOPIC%=. Set proper permissions in this topic!
+         * =EXPORTTOPIC=: When using the default =OUTWEBTOPIC= you can define the name of the topic here; defaults to =ExportWeb= (eg. if you publish the web _Processes_ with the default preferences the result will be attached to _Processes.ExportWeb_).
+      * =OUTATTACHMENT=: Name of the attachment to store the result; defaults to =Published<i>WebToPublish</i>.pdf=.
+      * =PUBLISHPAGES=: Numbering format, one of =Consecutive=, =Separate=, =All=; defaults to =Consecutive=.
+      * =EXPORTTOPICLIST=: List (_TML_ could be =%%NOP%SOLRSEARCH{...}%=) of topics to publish; defaults to all approved pages in selected web.
 
 ---++ Installation Instructions
 Install GenPDFPrincePlugin and this Plugin.
