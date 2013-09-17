@@ -263,6 +263,12 @@ tr, td, th { page-break-inside: avoid }
 /*-------- /MA_table --------*/
 /* -------------------------- /Modac Tables ----------------------------*/
 
+/*-------- Apps --------*/
+.atp_edit {
+	display: none !important;
+}
+/*-------- /Apps --------*/
+
 /*-------- Prince Quirks --------*/
 option[selected] { display: table-row }
 option:not([selected]) { display: none }
