@@ -53,12 +53,49 @@ div.Princefooter {
    flow: static(Princefooter)
 }
 span.Seitenzahl {
-   content: %TMPL:P{"printPageCounter"}%
+   content: %TMPL:P{"printPageCounter" mode="All"}%
 }
+div.foswikiPage::before {
+   page: pdfStart%WEB%/%TOPIC%;
+}
+div.foswikiPage::after {
+   page: foswikiEnd%WEB%/%TOPIC%;
+}
+div.pageCover a.pdfLink[href]::after {
+    content: " [" target-counter(attr(href), page) "]";
+}
+span.pdfPageNumber a.pdfLink[href]::after {
+    content: target-counter(attr(href), page);
+}
+a.pdfAnchor {
+    visibility: hidden;
+    font-size: 0;
+    line-height: 0;
+}
+span.pdfPage {
+    content: counter(page)
+}
+span.pdfPages {
+    content: counter(pages)
+}
+div.pageCover_ {
+    page-break-after: always;
+}
+%IF{"$'URLPARAM{PUBLISHPAGES}' = 'Separate'" 
+then="body {
+    counter-reset: page 1;
+}"
+else="/* Not separating pages */"
+}%
 </style>
 %TMPL:END%
 
-%TMPL:DEF{"modacPageNr"}%<span class="Seitenzahl"></span>%TMPL:END% 
+%TMPL:DEF{"modacPageNr"}%<span class='pdfPageNumber'>%IF{
+"$'URLPARAM{PUBLISHPAGES}'" then="$percentTMPL:P{\"printPageCounter\" mode=\"%URLPARAM{PUBLISHPAGES}%\"}$percent"
+else="$percentTMPL:P{\"printPageCounter\" mode=\"All\"}$percent"
+}%</span>%TMPL:END%
+
+%TMPL:DEF{"modacAllPagesNr"}%<span class="Seitenzahl"></span>%TMPL:END%
 
 %TMPL:DEF{"main"}%
 <div class="foswikiPage">
@@ -81,7 +118,9 @@ span.Seitenzahl {
 
 %TMPL:DEF{"broadcastmessage"}%%TMPL:END%
 
-%TMPL:DEF{"content"}%<div class="foswikiTopic">%TMPL:P{"broadcastmessage"}% %TEXT%</div><!-- /foswikiTopic-->%TMPL:END%
+%TMPL:DEF{"pageCover_"}%<div class="pageCover">This is %WEB%/%TOPIC% starting at <a href="#pdfStart" class="pdfLink">Page</a> and ending at <a href="#pdfEnd" class="pdfLink">Page</a>.</div>%TMPL:END%
+
+%TMPL:DEF{"content"}%%TMPL:P{"pageCover"}%<a name="pdfStart" class="pdfAnchor">AnchorStart</a><div class="foswikiTopic">%TMPL:P{"broadcastmessage"}% %TEXT%</div><!-- /foswikiTopic--><a name="pdfEnd" class="pdfAnchor">AnchorEnd</a>%TMPL:END%
 
 %{"Princefooter must be on the first page as well, or it won't be shown on all pages"}%
 %TMPL:DEF{"topheaderbody"}%
