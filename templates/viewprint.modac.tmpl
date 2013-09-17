@@ -26,13 +26,14 @@
 %TMPL:DEF{"attachmentsbottom"}%%TMPL:P{"attachments"}%%TMPL:END%
 
 %TMPL:DEF{"defaultstyle"}%
+%IF{"istopic '%CUSTOMIZINGWEB{default="Custom"}%.AppThemeCSS'" then="<style>@import url('%PUBURLPATH%/%CUSTOMIZINGWEB{default="CUSTOM"}%/AppThemeCSS/apptheme.css');</style>"}%<!-- App Theme -->
 <style>
 @page {
   margin-right: %TMPL:P{"printRightMargin"}%;
   margin-left: %TMPL:P{"printLeftMargin"}%;
   margin-top: %TMPL:P{"printHeaderHeight"}%;
   margin-bottom: %TMPL:P{"printFooterHeight"}%;
-  size: %TMPL:P{"printFormat"}%%IF{"$'URLPARAM{landscape}' = '1' or ($'URLPARAM{landscape}' = '' and $LANDSCAPE = '1')" then=" landscape"}%;
+  size: %TMPL:P{"printFormat"}%%IF{"'%URLPARAM{"landscape" default="%LANDSCAPE%"}%' = '1'" then=" landscape"}%;
 
   @top {
     content: flow(Princeheader)
