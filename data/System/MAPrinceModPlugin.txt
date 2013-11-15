@@ -1,0 +1,124 @@
+---+!! !MAPrinceModPlugin
+<!--
+One line description, required for extensions repository catalog.
+BuildContrib will fill in the SHORTDESCRIPTION with the value of
+$SHORTDESCRIPTION from the .pm module, or you can redefine it here if you
+prefer.
+   * Set SHORTDESCRIPTION = Modifies page contents for printing with GenPDFPrincePlugin to make it behave like viewfile.
+-->
+%SHORTDESCRIPTION%
+
+%TOC%
+
+---++ Usage
+This Plugin is designed to work along with GenPDFPrincePlugin and check image permissions.
+<p>It will rewrite the source in img-tags to reference to local files on the server eg. =img src='/bin/viewfile/Main/Topic/MyPicture.png'= will become =img src='file:///path/to/Foswiki/pub/Main/Topic/MyPicture.png'= *IF* the user has the required permissions to view that file.
+</p>
+When access is denied the image will be replaced with an error-image. You can set that image in configure.
+
+---++ Customization
+---+++ Customizing the page
+You will need to create a =ModacPrintLayoutTemplate= in your customizing skin, eg. =Custom.CustomSkinModacPrintLayoutTemplate=. You can use [[%SYSTEMWEB%.ModacPrintLayoutTemplate][%SYSTEMWEB%.ModacPrintLayoutTemplate]] as template and remove the options you do not need.
+| *Definition* | *Explanation* | *Format to use* |
+| *layout* |||
+| =printHeaderHeight= | This is the height of the header. | _css_, eg. =50px;= |
+| =printFooterHeight= | This is the height of the footer. | _css_, eg. =50px;= |
+| =printLeftMargin= | This is the left margin of the page. | _css_, eg. =2cm;= |
+| =printRightMargin= | This is the right margin of the page. | _css_, eg. =1cm;= |
+| =printFormat= | Paper size | A4, letter, etc. |
+| *header/footer* |||
+| =Princeheader= | This is the content of the header and will normally consist of =%%NOP%TMPL:P{"top"}%= | _TML_ |
+| =Princefooter= | This is the content of the footer and will normally consist of a line and some text below.%BR%If you only want to modify the text you most likely want to look at =PrincefooterText_xx= | _TML_ |
+| =PrincefooterText_xx= %BR% =PrincefooterText_en= %BR% =PrincefooterText_de= %BR% =PrincefooterText_default= | With the default =Princefooter= one of these definitions will be printed on the bottom of the page according to the =%%NOP%CONTENT_LANGUAGE%=.%BR%If =%%NOP%CONTENT_LANGUAGE%= is set to 'de' the definition =PrincefooterText_de= will be used, when it is set to 'en' it will use =PrincefooterText_en= etc.. When =%%NOP%CONTENT_LANGUAGE%= is set to 'fr' but there is no =PrincefooterText_fr= it will default to =PrincefooterText_default=.%BR%You can add any =PrincefooterText_xx= you like. | _TML_ |
+| *page counter* |||
+| =printPageCounter= | This is the content of the page counter that you can print with =%%NOP%TMPL:P{"modacPageNr"}%=.%BR%If you only want to modify the text you probably want to change =printPageCounter_xx= instead. | _TML_ |
+| =printPageCounter_xx= %BR% =printPageCounter_en= %BR% =printPageCounter_de= %BR% =printPageCounter_default= | When the default =printPageCounter= is used one of these definitions will be used according to the =%%NOP%CONTENT_LANGUAGE%=.%BR%As with =PrincefooterText_xx= you can add any language you like. | _TML_ |
+
+---+++ Customizing the watermark
+There are two template definitions that controll the watermark:
+| *definition* | *Explanation* | *Format to use* |
+| =printWatermarkCondition= | Enter a condition when the watermark is to be displayed.%BR%Example:<pre>%%NOP%TMPL:DEF{"printWatermarkCondition"}%context KVPIsDiscussion%%NOP%TMPL:END%</pre> | See =IF= conditions. |
+| =printWatermark= | This is the watermark that will be overlayed. It should be transparent, so the text below is still readable. | _TML_ |
+
+---+++ Hiding stuff in the printout
+If you add the _css-class_ =modacPrintHide= to your element it will be hidden in the printout.
+
+---++ Print-dialog
+---+++ Using the dialog
+To use the default print dialog use this link:
+<pre>
+%%NOP%IF{"context MAPrinceModPluginEnabled" then="&lt;a href=\"%%NOP%SCRIPTURL{"view"}%/%%NOP%SYSTEMWEB%/MAPrinceModPrintDialog?skin=text&amp;section=dialog&amp;pweb=%%NOP%ENCODE{"%%NOP%INCLUDINGWEB%" type="url"}%&amp;ptopic=%%NOP%ENCODE{"%%NOP%INCLUDINGTOPIC%" type="url"}%&amp;landscape=%%NOP%LANDSCAPE{default="0"}%\" class=\"jqUIDialogLink modacPrintHide\"&gt;%%NOP%MAKETEXT{"PDF-Print"}%&lt;/a&gt;
+"}%
+</pre>
+%X% You will also need a =%%NOP%JQREQUIRE{"ui::dialog"}%= somewhere, however on standard _ModacSkin_ installations this will be present by default.%BR%
+It will generate a dialog with portrait/landscape selection. If you want landscape to be pre-selected, set =LANDSCAPE=1= in your =WebPreferences=, =SitePreferences= or topic preferences.
+---+++ Adding URL parameters
+If you want to use additional URL parameters you will neet to tell the dialog to use them and what they are.%BR%
+Set =printParams= to a comma-separated list of parameters to use.
+
+For example in order to amend the skin variable and you also expect an already present URL parameter called =MyParameter= use a print command like this:
+<pre>
+%%NOP%IF{"context MAPrinceModPluginEnabled" then="&lt;a href=\"%%NOP%SCRIPTURL{"view"}%/%%NOP%SYSTEMWEB%/MAPrinceModPrintDialog?skin=text&amp;section=dialog&amp;pweb=%%NOP%ENCODE{"%%NOP%INCLUDINGWEB%" type="url"}%&amp;ptopic=%%NOP%ENCODE{"%%NOP%INCLUDINGTOPIC%" type="url"}%&amp;landscape=%%NOP%LANDSCAPE{default="0"}%%RED%&amp;printParams=skin,MyParam&skin=MySkin,%%NOP%SKIN%&amp;MyParam=%%NOP%URLPARAM{"MyParam"}%%ENDCOLOR%\" class=\"jqUIDialogLink modacPrintHide\"&gt;%%NOP%MAKETEXT{"PDF-Print"}%&lt;/a&gt;
+"}%
+</pre>
+%X% You need _FILTERPLUGIN_ enabled for this feature to work.
+
+---++ PublishPlugin
+If you want to use _PublishPlugin_ to publish a whole web, there are some changes to be made.
+   * configure _PublishPlugin_: Tell _PublishPlugin_ to use prince; change ={PublishPlugin}{PDFCmd}= to something like this (*change directories* according to your installation):<pre>
+/usr/bin/prince -i html5 -o %%NOP%FILE|F% %%NOP%FILES|F% -s /var/www/qwiki/pub/System/MAPrinceModPlugin/maprince.css
+</pre>
+   * configure _KVPPlugin_: Make sure the line ='uncontrolled' => 1= is present in ={Extensions}{KVPPlugin}{uncontrolledRow}=; your configuration could look like this:<pre>
+{
+  %RED%'uncontrolled' => 1,%ENDCOLOR%
+  'righttab' => 'Old Discussion',
+  'approved' => 1,
+  'message' => 'This topic is not under any workflow.',
+  'lefttab' => 'Info Page'
+}
+</pre>
+   * =CustomSkinTopHeadTemplate=: You will need to change the =TopHeadTemplate= of your customized skin. Add these definitions:<pre>
+%{&lt;verbatim class="tml" /&gt;}%
+%%NOP%TMPL:DEF{"top_head"}%%%NOP%IF{"$'GETWORKFLOWROW{uncontrolled}'!=1" then="$percentTMPL:P{top_head_kvp}$percent" else="$percentTMPL:P{top_head_standard}$percent"}%%NOP%%TMPL:END%
+%{&lt;/verbatim&gt;}%
+
+%{&lt;verbatim class="tml" /&gt;}%
+%%NOP%TMPL:DEF{"top_head_kvp"}%%%NOP%IF{"$'GETWORKFLOWROW{approved}'!='1'" then="$percentTMPL:P{top_head_discussion}$percent" else="$percentTMPL:P{top_head_approved}$percent"}%%%NOP%TMPL:END%
+%{&lt;/verbatim&gt;}%
+</pre>
+   * Copy =%SYSTEMWEB%/PublishPluginModacDialog= to a web of your choosing.
+   * Set these topic preferences:
+      * =DEFAULTWEB=: Preselection for web to print; defaults to current web.
+      * =OUTWEBTOPIC=: =Web.Topic= where the result should be attached to; defaults to =<i>WebToPublish</i>.%%NOP%EXPORTTOPIC%=. Set proper permissions in this topic!
+         * =EXPORTTOPIC=: When using the default =OUTWEBTOPIC= you can define the name of the topic here; defaults to =ExportWeb= (eg. if you publish the web _Processes_ with the default preferences the result will be attached to _Processes.ExportWeb_).
+      * =OUTATTACHMENT=: Name of the attachment to store the result; defaults to =Published<i>WebToPublish</i>.pdf=.
+      * =PUBLISHPAGES=: Numbering format, one of =Consecutive=, =Separate=, =All=; defaults to =Consecutive=.
+      * =EXPORTTOPICLIST=: List (_TML_ could be =%%NOP%SOLRSEARCH{...}%=) of topics to publish; defaults to all approved pages in selected web.
+
+---++ Installation Instructions
+Install GenPDFPrincePlugin and this Plugin.
+<br />
+In Configure set
+<verbatim>
+{PluginsOrder} = ...,MAPrinceModPlugin, GenPDFPrincePlugin
+</verbatim>
+so this plugin executes before Prince.
+
+%$INSTALL_INSTRUCTIONS%
+
+---++ Info
+
+Many thanks to the following sponsors for supporting this work:
+   * Acknowledge any sponsors here
+
+|  Author(s): | |
+|  Copyright: | &copy; |
+|  License: | [[http://www.gnu.org/licenses/gpl.html][GPL (Gnu General Public License)]] |
+|  Release: | %$RELEASE% |
+|  Version: | %$VERSION% |
+|  Change History: | <!-- versions below in reverse order -->&nbsp; |
+|  Dependencies: | %$DEPENDENCIES% |
+|  Home page: | http://extensions.open-quality.com/bin/view/Extensions/MAPrinceModPlugin |
+|  Support: | http://extensions.open-quality.com/bin/view/Support/MAPrinceModPlugin |
+
+<!-- Do _not_ attempt to edit this topic; it is auto-generated. -->

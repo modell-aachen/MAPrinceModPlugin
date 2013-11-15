@@ -1,0 +1,288 @@
+html body {
+	font-size: 100% /* to change the site's font size, change .foswikiPage below */
+	font-family: Arial,Helvetica;
+	font-size:small;
+}
+
+.foswikiPage {
+	line-height:1.5em; /*S1*/
+	font-family:arial, verdana, sans-serif;
+	/* change font size here */
+	font-size: 10px;
+	min-width: 600px;
+}
+
+html>body { /* Mozilla */
+	font-size:small;	
+}
+
+h1 { font-size: 150%; }
+h2 { font-size: 135%; }
+h3 { font-size: 126%; }
+h4 { font-size: 118%; }
+h5 { font-size: 108%; }
+h6 { font-size: 100%; }
+
+/* Shrink headers in tables */
+table h1 { font-size: 125%; }
+table h2 { font-size: 117%; }
+table h3 { font-size: 113%; }
+table h4 { font-size: 109%; }
+table h5 { font-size: 104%; }
+table h6 { font-size: 100%; }
+
+h1, h2, h3, h4, h5, h6 {
+	background: none;
+	font-weight: normal;
+	margin: 0;
+	padding-top: .5em;
+	padding-bottom: .17em;
+	border-bottom: 1px solid #aaa;
+	page-break-after: avoid
+}
+
+h3, h4, h5, h6 {
+	border-bottom: none;
+	font-weight: bold;
+}
+
+td {
+	padding: 2px;
+}
+
+/* TablePlugin */
+.foswikiTable,
+.foswikiTable td,
+.foswikiTable th {
+        border: 1px #AAA solid;
+        vertical-align:top;
+}
+.foswikiTable {
+        margin:2px 0;
+        border-collapse:collapse;
+}
+.foswikiTable td {
+        padding:.2em .5em;
+}
+.foswikiTable th {
+        padding:.4em .5em;
+}
+.foswikiTable .tableSortIcon {
+        display: none;
+}
+
+.modacHide, .modacPrintHide {
+	display:none;
+}
+
+#modacWrapper ul {
+	list-style-image:url("../ModacSkinTheme/ModacSkinLogos/bullet.gif");
+	padding-left: 15px;
+	margin-left: 5px;
+}
+
+#modacWrapper ul ul {
+	padding-left: 3px;
+	margin-left: 3px;
+}
+
+.modacBorder {
+	border: solid 1px #dddddd;
+}
+
+#modacHeading {
+	border-color:#AAAAAA;
+	border-style:none none solid;
+	border-width:1px;
+	border-collapse: collapse;
+	font-size:190%;
+	line-height: 1.1em;
+	clear:right;
+}
+
+#modacWrapper .foswikiToc ul {
+	list-style: none outside none;
+}
+
+.patternHomePath {
+	display: none;
+}
+
+#modacContentHeading {
+	display: none;
+}
+
+.modacHeaderTable {
+	margin: 1em 0;
+	border: 1px solid black;
+	border-collapse: collapse;
+	empty-cells:show;
+	background-color: #F3F3F3;
+}
+
+.modacHeaderTable td { 
+	border: 1px solid black;
+	border-color: #AAA;
+}
+
+.modacHeaderTable tr { 
+	border-color: #AAA;
+}
+.Seitenzahl {
+	display: inline;
+}
+
+#kopflogo {
+	padding: 4px;
+}
+
+img {
+	/*display:block; 
+	margin-left:auto; margin-right:auto;*/
+	max-width: 140mm;
+	max-height: 185mm;
+	page-break-before: avoid
+}
+
+tr, td, th { page-break-inside: avoid }
+
+.Modac_Standard tbody:first-child tr:first-child, .Modac_Standard thead tr:first-child {
+	text-align: center; 
+	font-weight: bold; 
+	color: #f9f9f9; 
+	background: #003c89; 
+	border-collapse: collapse;
+	border: solid 1px #AAA;
+}
+
+/* -------------------------- Modac Tables ----------------------------*/
+
+/*-------- Modac_Standard = MA_table --------*/
+.Modac_Standard {
+	margin: 1em 0;
+	background: #f9f9f9;
+	border-collapse: collapse;
+	empty-cells:show;
+}
+.Modac_Standard td, .Modac_Standard th {
+	border: 1px #AAA solid;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+.Modac_Standard tbody:first-child tr:first-child, .Modac_Standard thead tr:first-child {
+	page-break-after: avoid;
+	text-align: center; 
+	font-weight: bold; 
+	color: #f9f9f9; 
+	background: #003c89; 
+}
+/*-------- /Modac_Standard = MA_table --------*/
+
+/*-------- Modac_Standard_Ohne --------*/
+.Modac_Standard_Ohne {
+	margin: 1em 0;
+	background: #f9f9f9;
+	border-collapse: collapse;
+	empty-cells:show;
+}
+.Modac_Standard_Ohne td, .Modac_Standard_Ohne th {
+	border: 1px #AAA solid;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+/*-------- /Modac_Standard_Ohne --------*/
+
+/*-------- Modac_Standard_Leer --------*/
+.Modac_Standard_Leer {
+	margin: 1em 0;
+	border-width: 0px;
+	border-collapse: collapse;
+	empty-cells:show;
+}
+.Modac_Standard_Leer td, .Modac_Standard_Leer th {
+	padding-left: 3px;
+	padding-right: 3px;
+}
+/*-------- /Modac_Standard_Leer --------*/
+
+/*-------- Grey_Standard* --------------*/
+.Grey_Standard, .Grey_Standard_Ohne {
+	background: none repeat scroll 0 0 #ffffff;
+	border-collapse: collapse;
+	empty-cells: show;
+	margin: 1em 0;
+}
+.Grey_Standard td, .Grey_Standard th, .Grey_Standard_Ohne td, .Grey_Standard_Ohne th {
+	border: 1px solid #808080;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+.Grey_Standard tbody:first-child tr:first-child, .Grey_Standard thead tr:first-child {
+	background: none repeat scroll 0 0 #cccccc;
+	page-break-after: avoid;
+	color: black;
+	font-weight: bold;
+	text-align: center;
+}
+/*-------- /Grey_Standard* -------------*/
+
+/*-------- deprecated: MA_table --------*/
+.MA_table {
+	margin: 1em 0;
+	background: #f9f9f9;
+	border: 1px #AAA solid;
+	border-collapse: collapse;
+	empty-cells:show;
+}
+.MA_table td {
+	border: 1px #AAA solid;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+.MA_table tr:first-child { 
+	page-break-after: avoid;
+	text-align: center; 
+	font-weight: bold; 
+	color: #f9f9f9; 
+	background: #003c89; 
+}
+.MA_table_controlling {
+	margin: 1em 1em 1em 0;
+	background: #f9f9f9;
+	border: 1px #AAA solid;
+	border-collapse: collapse;
+	empty-cells:show;
+}
+.MA_table_controlling tr:first-child {
+	page-break-after: avoid;
+	text-align: center; 
+	font-weight: bold; 
+	color: #f9f9f9; 
+	background: #003c89; 
+}
+/*-------- /MA_table --------*/
+/* -------------------------- /Modac Tables ----------------------------*/
+
+/*-------- Apps --------*/
+.atp_edit {
+	display: none !important;
+}
+/*-------- /Apps --------*/
+
+/*-------- Prince Quirks --------*/
+option[selected] { display: table-row }
+option:not([selected]) { display: none }
+/*-------- /Prince Quirks --------*/
+
+/* add page numbers to PublishPlugin's first page */
+body > a[href]::after {
+	content: " [" target-counter(attr(href), page) "]";
+	float: right;
+}
+
+/* don't underline etc, links which merely give a page number */
+a.pdfLink, a.pdfPage, a.pdfPages {
+	color: black;
+	text-decoration: none;
+}
+

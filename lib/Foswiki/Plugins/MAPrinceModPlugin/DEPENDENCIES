@@ -1,0 +1,2 @@
+# Dependencies for MAPrinceModPlugin
+Foswiki::Plugins::SwitchMacroPlugin,>=1.0,perl,Required.

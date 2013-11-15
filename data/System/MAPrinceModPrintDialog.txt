@@ -1,0 +1,22 @@
+%STARTSECTION{"dialog"}%
+<div id="printDialog" title="%MAKETEXT{"PDF-Options"}%" class="jqUIDialog { modal:true, resizable:true, draggable:true, height:240, width:300}">
+<div id="printSelection">
+---++ %MAKETEXT{"Please choose format:"}%
+<form id="printDialogForm" action="%SCRIPTURLPATH{"view"}%/%URLPARAM{"pweb" default="%USERSWEB%"}%/%URLPARAM{"ptopic"}%" onsubmit="jQuery('#printDialog').dialog('close');"> <!-- It seems I can't use both, jqUIDialogSubmit and jqUIDialogClose together, so I'll need the onsubmit -->
+<p>
+    <input type="hidden" name="contenttype" value="application/pdf" />
+    <input type="hidden" name="cover" value="print" />
+    <input type="hidden" name="attachment" value="1" />
+    <!-- printParams -->%IF{"$'URLPARAM{printParams}'"
+    then="$percentFORMATLIST{\"$percentURLPARAM{printParams}$percent\" format=\"<input type=\\"hidden\\" name=\\"$1\\" value=\\"$dollarpercentURLPARAM{$1}$dollarpercent\\" />\" separator=\"\"}$percent"}%<!-- /printParams -->
+    <input type="radio" name="landscape" value="0" %IF{"$'URLPARAM{landscape}' != '1'" then="checked='checked'"}%><img src="%PUBURLPATH%/%SYSTEMWEB%/FamFamFamSilkCompanion1Icons/page_portrait_shot.png" /> %MAKETEXT{"Print in portrait mode"}% </input>
+    <br />
+    <input type="radio" name="landscape" value="1" %IF{"$'URLPARAM{landscape}' = '1'" then="checked='checked'"}%><img src="%PUBURLPATH%/%SYSTEMWEB%/FamFamFamSilkCompanion1Icons/page_landscape_shot.png" /> %MAKETEXT{"Print in landscape mode"}% </input>
+</p><p>
+    <a class="jqUIDialogButton jqUIDialogSubmit {icon: 'ui-icon-circle-check'}">%MAKETEXT{"Generate PDF"}%</a>
+    <a class="jqUIDialogButton jqUIDialogClose {icon: 'ui-icon-cancel'}">%MAKETEXT{"Cancel"}%</a>
+</p>
+</form>
+</div>
+</div>
+%ENDSECTION{"dialog"}%

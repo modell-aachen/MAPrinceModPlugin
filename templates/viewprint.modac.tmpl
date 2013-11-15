@@ -1,0 +1,140 @@
+%TMPL:INCLUDE{"view"}%
+%TMPL:INCLUDE{"ModacPrintLayout"}%
+
+%TMPL:DEF{"logo"}%%TMPL:END%
+%TMPL:DEF{"bottombar"}%%TMPL:END%
+%TMPL:DEF{"topicactionbuttonsTOP"}%%TMPL:END%
+%TMPL:DEF{"sidebar"}%%TMPL:END%
+%TMPL:DEF{"topbar"}%%TMPL:END%
+
+%TMPL:DEF{"script:skintemplate"}%%TMPL:END%
+
+
+%TMPL:DEF{"bodyclassname"}%patternViewPage patternPrintPage%TMPL:END%
+
+%TMPL:DEF{"topicactionbuttons"}%%TMPL:END%
+
+%TMPL:DEF{"form"}%
+%META{"form"}%%TMPL:END%
+%TMPL:DEF{"formtop"}%%TMPL:END%
+%TMPL:DEF{"formbottom"}%%TMPL:P{"form"}%%TMPL:END%
+
+
+%TMPL:DEF{"attachments"}%
+%META{"attachments"}%%TMPL:END%
+%TMPL:DEF{"attachmentstop"}%%TMPL:END%
+%TMPL:DEF{"attachmentsbottom"}%%TMPL:P{"attachments"}%%TMPL:END%
+
+%TMPL:DEF{"defaultstyle"}%
+%IF{"istopic '%CUSTOMIZINGWEB{default="Custom"}%.AppThemeCSS'" then="<style>@import url('%PUBURLPATH%/%CUSTOMIZINGWEB{default="CUSTOM"}%/AppThemeCSS/apptheme.css');</style>"}%<!-- App Theme -->
+<style>
+@page {
+  margin-right: %TMPL:P{"printRightMargin"}%;
+  margin-left: %TMPL:P{"printLeftMargin"}%;
+  margin-top: %TMPL:P{"printHeaderHeight"}%;
+  margin-bottom: %TMPL:P{"printFooterHeight"}%;
+  size: %TMPL:P{"printFormat"}%%IF{"'%URLPARAM{"landscape" default="%LANDSCAPE%"}%' = '1'" then=" landscape"}%;
+
+  @top {
+    content: flow(Princeheader)
+   }
+
+  @bottom {
+    content: flow(Princefooter)
+  }
+
+}
+
+
+div.Princeheader {
+   flow: static(Princeheader)
+}
+div.Princefooter {
+   flow: static(Princefooter)
+}
+span.Seitenzahl {
+   content: %TMPL:P{"printPageCounter" mode="All"}%
+}
+div.foswikiPage::before {
+   page: pdfStart%WEB%/%TOPIC%;
+}
+div.foswikiPage::after {
+   page: foswikiEnd%WEB%/%TOPIC%;
+}
+div.pageCover a.pdfLink[href]::after {
+    content: " [" target-counter(attr(href), page) "]";
+}
+span.pdfPageNumber a.pdfLink[href]::after {
+    content: target-counter(attr(href), page);
+}
+a.pdfAnchor {
+    visibility: hidden;
+    font-size: 0;
+    line-height: 0;
+}
+span.pdfPage {
+    content: counter(page)
+}
+span.pdfPages {
+    content: counter(pages)
+}
+div.pageCover_ {
+    page-break-after: always;
+}
+%IF{"$'URLPARAM{PUBLISHPAGES}' = 'Separate'" 
+then="body {
+    counter-reset: page 1;
+}"
+else="/* Not separating pages */"
+}%
+</style>
+%TMPL:END%
+
+%TMPL:DEF{"modacPageNr"}%<span class='pdfPageNumber'>%IF{
+"$'URLPARAM{PUBLISHPAGES}'" then="$percentTMPL:P{\"printPageCounter\" mode=\"%URLPARAM{PUBLISHPAGES}%\"}$percent"
+else="$percentTMPL:P{\"printPageCounter\" mode=\"All\"}$percent"
+}%</span>%TMPL:END%
+
+%TMPL:DEF{"modacAllPagesNr"}%<span class="Seitenzahl"></span>%TMPL:END%
+
+%TMPL:DEF{"main"}%
+<div class="foswikiPage">
+        <div id="modacSidebar">
+        %TMPL:P{"sidebar"}%
+        </div>
+        <div id="modacWrapper"><div id="modacSecondWrapper">
+        <div id="modacContentsWrapper"><div id="modacContents"><div id="modacContentHeading"></div>%TMPL:P{"patterntopiccontents"}%</div></div>
+        %TMPL:P{"bottombar"}%</div>
+        </div>
+</div>
+%TMPL:END%
+
+%{ DEPRECATED: beforetext and aftertext }%
+%{ compatibility transition older than 4.2: }%
+%TMPL:DEF{"contentheader"}%%TMPL:P{"beforetext"}%%TMPL:END%
+%TMPL:DEF{"contentfooter"}%%TMPL:P{"aftertext"}%%TMPL:END%
+%TMPL:DEF{"beforetext"}%%TMPL:END%
+%TMPL:DEF{"aftertext"}%%TMPL:END%
+
+%TMPL:DEF{"broadcastmessage"}%%TMPL:END%
+
+%TMPL:DEF{"pageCover_"}%<div class="pageCover">This is %WEB%/%TOPIC% starting at <a href="#pdfStart" class="pdfLink">Page</a> and ending at <a href="#pdfEnd" class="pdfLink">Page</a>.</div>%TMPL:END%
+
+%TMPL:DEF{"content"}%%TMPL:P{"pageCover"}%<a name="pdfStart" class="pdfAnchor">AnchorStart</a><div class="foswikiTopic">%TMPL:P{"broadcastmessage"}% %TEXT%</div><!-- /foswikiTopic--><a name="pdfEnd" class="pdfAnchor">AnchorEnd</a>%TMPL:END%
+
+%{"Princefooter must be on the first page as well, or it won't be shown on all pages"}%
+%TMPL:DEF{"topheaderbody"}%
+<div class="Princeheader">%TMPL:P{"Princeheader"}%%IF{"%TMPL:P{"printWatermarkCondition"}%" then="<table style='top:0px;rm:%TMPL:P{"printWatermarkTop"}%;position:absolute;z-index: 99;width:100%;height:100%;'><tr><td style='text-align:center;vertical-align:middle'>$percentTMPL:P{printWatermark}$percent</td></tr></table>"}%</div>
+<div class="Princefooter">%TMPL:P{"Princefooter"}%</div>
+%TMPL:END%
+
+%TMPL:DEF{"patterntopiccontents"}%
+%TMPL:P{"topheaderbody"}%
+%TMPL:P{"contentheader"}%
+%TMPL:P{"formtop"}%
+%TMPL:P{"attachmentstop"}%
+<div class="patternContent">%TMPL:P{"content"}%</div>
+%TMPL:P{"bottomcontent"}%
+%TMPL:END%
+
+

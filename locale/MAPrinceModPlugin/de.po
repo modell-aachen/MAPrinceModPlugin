@@ -1,0 +1,50 @@
+# Foswiki translation for Deutsch
+# Translators:
+# ModellAachen
+msgid ""
+msgstr ""
+"Project-Id-Version: Foswiki $Id\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2012-10-11 11:31+0200\n"
+"Last-Translator: Modell Aachen\n"
+"Language-Team: Foswiki German Translation Team <none>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.5\n"
+
+msgid "This printout is a copy and not subject to updating service.<br />Before use, the respective user has to make sure that the copy is up to date.<br />Print date:"
+msgstr "Dieser Ausdruck ist eine Kopie und unterliegt nicht dem Änderungsdienst.<br>Der jeweilige Benutzer hat sich vor Gebrauch von der Aktualität der Kopie zu vergewissern.<br />Druckdatum:"
+
+msgid "Page"
+msgstr "Seite"
+
+msgid "of"
+msgstr "von"
+
+msgid "PDF-Options"
+msgstr "PDF-Optionen"
+
+msgid "Please choose format:"
+msgstr "Bitte Format wählen:"
+
+msgid "Print in portrait mode"
+msgstr "Im Hochformat drucken"
+
+msgid "Print in landscape mode"
+msgstr "Im Querformat drucken"
+
+msgid "Generate PDF"
+msgstr "PDF erzeugen"
+
+msgid "Cancel"
+msgstr "Abbrechen"
+
+msgid "Pages <span style='white-space: nowrap'>%1 to %2</span>"
+msgstr "Seiten <span style='white-space: nowrap'>%1 bis %2</span>"
+
+msgid "Page <span style='white-space: nowrap'>%1 of %2</span>"
+msgstr "Seite <span style='white-space: nowrap'>%1 von %2</span>"
