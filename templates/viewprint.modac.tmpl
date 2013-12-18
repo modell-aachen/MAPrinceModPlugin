@@ -130,12 +130,12 @@ else="$percentTMPL:P{\"printPageCounter\" mode=\"All\"}$percent"
 %TMPL:END%
 
 %TMPL:DEF{"patterntopiccontents"}%
-%TMPL:P{"topheaderbody"}%
-%TMPL:P{"contentheader"}%
-%TMPL:P{"formtop"}%
-%TMPL:P{"attachmentstop"}%
+<!--topheaderbody-->%TMPL:P{"topheaderbody"}%<!--/topheaderbody-->
+<!--contentheader-->%TMPL:P{"contentheader"}%<!--/contentheader-->
+<!--formtop-->%TMPL:P{"formtop"}%<!--/formtop-->
+<!--attachmentstop-->%TMPL:P{"attachmentstop"}%<!--/attachmentstop-->
 <div class="patternContent">%TMPL:P{"content"}%</div>
-%TMPL:P{"bottomcontent"}%<!--bottomcontent-->
+<!--bottomcontent-->%TMPL:P{"bottomcontent"}%<!--/bottomcontent-->
 %TMPL:END%
 
 
