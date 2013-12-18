@@ -71,6 +71,7 @@ a.pdfAnchor {
     visibility: hidden;
     font-size: 0;
     line-height: 0;
+    position: absolute;
 }
 span.pdfPage {
     content: counter(page)
@@ -134,7 +135,7 @@ else="$percentTMPL:P{\"printPageCounter\" mode=\"All\"}$percent"
 %TMPL:P{"formtop"}%
 %TMPL:P{"attachmentstop"}%
 <div class="patternContent">%TMPL:P{"content"}%</div>
-%TMPL:P{"bottomcontent"}%
+%TMPL:P{"bottomcontent"}%<!--bottomcontent-->
 %TMPL:END%
 
 
