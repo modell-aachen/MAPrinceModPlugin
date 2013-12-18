@@ -31,7 +31,7 @@ use Foswiki::Plugins ();    # For the API version
 # *must* exist in this package. This should always be in the format
 # $Rev: 9772 (2010-10-27) $ so that Foswiki can determine the checked-in status of the
 # extension.
-our $VERSION = '$Rev: 9772 (2010-10-27) $';
+our $VERSION = '1.0';
 
 our $RELEASE = "1.0";
 
