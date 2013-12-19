@@ -113,7 +113,7 @@ td {
 }
 
 .modacHeaderTable {
-	margin: 1em 0;
+	margin: 1em 0 0 0;
 	border: 1px solid black;
 	border-collapse: collapse;
 	empty-cells:show;
