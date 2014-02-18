@@ -1,0 +1,67 @@
+# MAPrinceModPlugin translation for Traditional Chinese
+msgid   ""
+msgstr  "Project-Id-Version: Foswiki $Id\n"
+        "Report-Msgid-Bugs-To: osthold@modell-aachen.de\n"
+        "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+        "PO-Revision-Date: 2010-11-09 08:01+0200\n"
+        "Language-Team: Modell Aachen\n"
+        "Language: zh_CN\n"
+        "MIME-Version: 1.0\n"
+        "Content-Type: text/plain; charset=UTF-8\n"
+        "Content-Transfer-Encoding: 8bit\n"
+        "Plural-Forms: nplurals=1; plural=0;\n"
+        "X-Generator: Pootle 2.0.5\n"
+        "X-Poedit-Country: Taiwan\n"
+        "X-Poedit-SourceCharset: utf-8\n"
+
+#: data/System/MAPrinceModPrintDialog.txt:17
+msgid   "Cancel"
+msgstr  "取消"
+
+#: data/System/MAPrinceModPrintDialog.txt:16
+msgid   "Generate PDF"
+msgstr  "生成PDF"
+
+#: data/System/MAPrinceModPrintDialog.txt:2
+msgid   "PDF-Options"
+msgstr  "PDF-选项"
+
+#: data/System/MAPrinceModPlugin.txt:50 data/System/MAPrinceModPlugin.txt:61
+msgid   "PDF-Print"
+msgstr  "PDF-打印"
+
+#: data/System/ModacPrintLayoutTemplate.txt:24
+msgid   "Page"
+msgstr  "页面"
+
+#: data/System/ModacPrintLayoutTemplate.txt:23
+#: data/System/ModacPrintLayoutTemplate.txt:29
+msgid   "Page <span style='white-space: nowrap'>%1 of %2</span>"
+msgstr  "页面 %2中<span style='空白: 不换行'>%1</span>"
+
+#: data/System/ModacPrintLayoutTemplate.txt:34
+msgid   "Pages <span style='white-space: nowrap'>%1 to %2</span>"
+msgstr  "页面 %1到%2<span style='空白: 不换行'></span>"
+
+#: data/System/MAPrinceModPrintDialog.txt:4
+msgid   "Please choose format:"
+msgstr  "请选择格式："
+
+#: data/System/MAPrinceModPrintDialog.txt:14
+msgid   "Print in landscape mode"
+msgstr  "横打"
+
+#: data/System/MAPrinceModPrintDialog.txt:12
+msgid   "Print in portrait mode"
+msgstr  "纵打"
+
+#: data/System/ModacPrintLayoutTemplate.txt:16
+msgid   "This printout is a copy and not subject to updating service.<br /"
+        ">Before use, the respective user has to make sure that the copy is "
+        "up to date.<br />Print date:"
+msgstr  "此打印输出仅是拷贝不受更新服务影响<br />在使用前，请用户确认副本为最"
+        "新。<br />打印日期:"
+
+#: data/System/ModacPrintLayoutTemplate.txt:24
+msgid   "of"
+msgstr  "在"
