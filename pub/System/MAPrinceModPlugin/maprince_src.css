@@ -286,3 +286,7 @@ a.pdfLink, a.pdfPage, a.pdfPages {
 	text-decoration: none;
 }
 
+/* user generated page break */
+.pdfPageBreak {
+        page-break-after: always;
+}
