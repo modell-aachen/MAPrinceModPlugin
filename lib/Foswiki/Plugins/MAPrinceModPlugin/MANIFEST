@@ -7,6 +7,7 @@ lib/Foswiki/Plugins/MAPrinceModPlugin.pm 0644 Perl module
 lib/Foswiki/Plugins/MAPrinceModPlugin/Config.spec 0644
 lib/Foswiki/Plugins/SafeWikiPlugin/Signatures/MAPrinceModPlugin.pm 0644
 locale/MAPrinceModPlugin/de.po 0644
+locale/MAPrinceModPlugin/fr.po 0644
 pub/System/MAPrinceModPlugin/draft_de.png 0644
 pub/System/MAPrinceModPlugin/draft_en.png 0644
 pub/System/MAPrinceModPlugin/err.png 0644 Error-Picture
