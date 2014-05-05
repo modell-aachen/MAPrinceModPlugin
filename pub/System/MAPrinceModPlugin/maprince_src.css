@@ -119,6 +119,14 @@ td {
 	empty-cells:show;
 	background-color: #F3F3F3;
 }
+.foswikiTopic>h1:first-child,
+.foswikiTopic>h2:first-child,
+.foswikiTopic>h3:first-child,
+.foswikiTopic>h4:first-child,
+.foswikiTopic>h5:first-child,
+.foswikiTopic>h6:first-child {
+	padding-top: 0px;
+}
 
 .modacHeaderTable td { 
 	border: 1px solid black;
