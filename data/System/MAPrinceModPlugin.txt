@@ -63,6 +63,19 @@ For example in order to amend the skin variable and you also expect an already p
 </pre>
 %X% You need _FILTERPLUGIN_ enabled for this feature to work.
 
+---++ Only printing selected JQTabPane tabs
+Usually all tabs are printed. You can alternatively only print selected tabs:
+   * Surround your tabpane with a =JQTabPrintSelected= class <verbatim><div class="JQTabPrintSelected">
+%TABPANE%
+...
+%ENDTABPANE%
+</div></verbatim>
+   * Give each tab an id (_valid css class_)
+   * Print the page with the id of the tab as URL parameter =printtab=<pre>
+%%NOP%IF{"context MAPrinceModPluginEnabled" then="&lt;a href=\"%%NOP%SCRIPTURL{"view"}%/%%NOP%SYSTEMWEB%/MAPrinceModPrintDialog?skin=text&amp;section=dialog&amp;pweb=%%NOP%ENCODE{"%%NOP%INCLUDINGWEB%" type="url"}%&amp;ptopic=%%NOP%ENCODE{"%%NOP%INCLUDINGTOPIC%" type="url"}%&amp;landscape=%%NOP%LANDSCAPE{default="0"}%%RED%;printParams=printtab;showtab=tab2%ENDCOLOR%\" class=\"jqUIDialogLink modacPrintHide\"&gt;%%NOP%MAKETEXT{"Print tab2"}%&lt;/a&gt;$
+"}%
+</pre>
+
 ---++ PublishPlugin
 If you want to use _PublishPlugin_ to publish a whole web, there are some changes to be made.
    * configure _PublishPlugin_: Tell _PublishPlugin_ to use prince; change ={PublishPlugin}{PDFCmd}= to something like this (*change directories* according to your installation):<pre>

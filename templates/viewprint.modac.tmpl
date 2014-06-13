@@ -83,6 +83,7 @@ span.pdfPages {
 div.pageCover_ {
     page-break-after: always;
 }
+%TMPL:P{"modacExtraPrintStyles"}%/* /extraPrintStyles */
 %IF{"$'URLPARAM{PUBLISHPAGES}' = 'Separate'" 
 then="body {
     counter-reset: page 1;

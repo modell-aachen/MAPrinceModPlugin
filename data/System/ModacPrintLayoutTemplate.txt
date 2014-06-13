@@ -41,3 +41,13 @@
 %TMPL:DEF{"printWatermarkCondition"}%0%TMPL:END%
 %{"Watermark to display, will be layed over the topic (give it transparency!)"}%
 %TMPL:DEF{"printWatermark"}%<img src='%PUBURLPATH%/%SYSTEMWEB%/MAPrinceModPlugin/draft_%IF{"'%CONTENT_LANGUAGE{default="%LANGUAGE%"}%'=~'de'" then="%CONTENT_LANGUAGE{default="%LANGUAGE%"}%" else="en"}%.png' />%TMPL:END%
+
+%{"Optional: Hide jQuery tabs"}%
+%TMPL:DEF{"modacExtraPrintStyles"}%%TMPL:PREV%
+div.JQTabPrintSelected div.jqTab {
+    display: none;
+}
+div.JQTabPrintSelected div.jqTab.%URLPARAM{"showtab" default="defaulttab"}% {
+    display: block;
+}
+%TMPL:END%
