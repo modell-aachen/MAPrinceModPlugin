@@ -7,6 +7,9 @@ $Foswiki::cfg{Extensions}{MAPrinceModPlugin}{err} = '';
 # **NUMBER**
 # Maximum width for <em>width="...px"</em> or <em>style="width:...px</em>
 $Foswiki::cfg{Extensions}{MAPrinceModPlugin}{MaxWidth} = 680;
+# **NUMBER**
+# Maximum height for <em>height="...px"</em> or <em>style="height:...px</em>
+$Foswiki::cfg{Extensions}{MAPrinceModPlugin}{MaxHeight} = 250;
 # **BOOLEAN**
 # If <em>style="width:..."</em> exceeds <em>MaxHeight</em>, should I add hyphenation?
 $Foswiki::cfg{Extensions}{MAPrinceModPlugin}{Hyphens} = '1';

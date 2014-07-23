@@ -94,6 +94,22 @@ sub completePageHandler {
 
   # replace image tags
   $_[0] =~ s/\<img(.*?)(\/?)\>/rewriteImgTag($1, $url, $user, $3)/ige;
+
+  # remove (large) predefined heights from tables
+  $_[0] =~ s#(\<table[^>]*)(height=["'])(\d+)(["'])#limitHeight($1,$2,$3,$4)#ige;
+  $_[0] =~ s#(\<table[^>]*)(style=["']([^'"]*)height:\s*["'])(\d+)(["'])#limitHeight($1,$2,$3,$4)#ige;
+}
+
+sub limitHeight {
+    my ($tag, $open, $height, $close) = @_;
+
+    my $maxHeight = $Foswiki::cfg{Extensions}{MAPrinceModPlugin}{MaxHeight} || 250;
+
+    if($height > 250) { # XXX arbitrary number
+        return $tag;
+    } else {
+        return "$tag$open$height$close";
+    }
 }
 
 sub limitWidth {
