@@ -86,7 +86,8 @@ sub completePageHandler {
   # remove <p></p> from tables as they are usually not desired
   $_[0] =~ s#<td([^>]*)>\n(<p></p>|<p\s*/>)#<td$1>\n#g;
   # limit width
-  $_[0] =~ s#width: (\d+)px;#limitWidth($1)#ige;
+  $_[0] =~ s#(style=['"][^'"]*)(width:\s*)(\d+)(?:px)?\s*(;|['"])#limitStyleWidth($1,$2,$3,$4)#ige;
+  $_[0] =~ s#(width=['"])(\d+)(?:px)?;?(['"])#limitWidth('', $1,$2,$3)#ige;
 
   #$_[0] =~ s#(width|height):\s*\d+(px|%);##g;
   #$_[0] =~ s#style="\s*"##g;
@@ -96,11 +97,28 @@ sub completePageHandler {
 }
 
 sub limitWidth {
-  my ($width) = @_;
-  if($width > 600) {
-    return "width: 600px; hyphens: auto";
+    my ($tag, $open, $width, $close) = @_;
+
+    my $maxWidth = $Foswiki::cfg{Extensions}{MAPrinceModPlugin}{MaxWidth} || 680;
+
+    if($width > $maxWidth) {
+        return "$tag$open${maxWidth}px$close";
+    } else {
+        return "$tag$open${width}px$close";
+    }
+}
+
+
+sub limitStyleWidth {
+  my ($tag, $open, $width, $close) = @_;
+
+  my $maxWidth = $Foswiki::cfg{Extensions}{MAPrinceModPlugin}{MaxWidth} || 680;
+  my $hyphens = ($Foswiki::cfg{Extensions}{MAPrinceModPlugin}{Hypens})?'hyphens:auto':'hyphens:none';
+
+  if($width > $maxWidth) {
+    return "$tag$open${maxWidth}px;$hyphens$close";
   }
-  return "width: ".$width."px;";
+  return "$tag$open${width}px$close";
 }
 
 sub rewriteImgTag {
