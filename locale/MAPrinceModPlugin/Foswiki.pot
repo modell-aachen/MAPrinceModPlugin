@@ -1,3 +1,20 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
 #: data/System/MAPrinceModPrintDialog.txt:17
 msgid "Cancel"
 msgstr ""
@@ -18,7 +35,7 @@ msgstr ""
 msgid "Page"
 msgstr ""
 
-#: data/System/ModacPrintLayoutTemplate.txt:23
+#: data/System/ModacPrintLayoutTemplate.txt:23 data/System/ModacPrintLayoutTemplate.txt:29
 msgid "Page <span style='white-space: nowrap'>%1 of %2</span>"
 msgstr ""
 
@@ -38,11 +55,12 @@ msgstr ""
 msgid "Print in portrait mode"
 msgstr ""
 
+#: data/System/MAPrinceModPlugin.txt:75
+msgid "Print tab2"
+msgstr ""
+
 #: data/System/ModacPrintLayoutTemplate.txt:16
-msgid ""
-"This printout is a copy and not subject to updating service.<br />Before "
-"use, the respective user has to make sure that the copy is up to date.<br /"
-">Print date:"
+msgid "This printout is a copy and not subject to updating service.<br />Before use, the respective user has to make sure that the copy is up to date.<br />Print date:"
 msgstr ""
 
 #: data/System/ModacPrintLayoutTemplate.txt:24
