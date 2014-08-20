@@ -16,56 +16,54 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.1.6\n"
 
-#: data/System/MAPrinceModPrintDialog.txt:17
+#: data/System/MAPrinceModPrintDialog.txt
 msgid "Cancel"
 msgstr "Annuler"
 
-#: data/System/MAPrinceModPrintDialog.txt:16
+#: data/System/MAPrinceModPrintDialog.txt
 msgid "Generate PDF"
 msgstr "Générer PDF"
 
-#: data/System/MAPrinceModPrintDialog.txt:2
+#: data/System/MAPrinceModPrintDialog.txt
 msgid "PDF-Options"
 msgstr "Options PDF"
 
-#: data/System/MAPrinceModPlugin.txt:50 data/System/MAPrinceModPlugin.txt:61
+#: data/System/MAPrinceModPlugin.txt
 msgid "PDF-Print"
 msgstr "imprimer PDF"
 
-#: data/System/ModacPrintLayoutTemplate.txt:24
+#: data/System/ModacPrintLayoutTemplate.txt
 msgid "Page"
 msgstr "Page"
 
-#: data/System/ModacPrintLayoutTemplate.txt:23
+#: data/System/ModacPrintLayoutTemplate.txt
 msgid "Page <span style='white-space: nowrap'>%1 of %2</span>"
 msgstr "Page <span style='white-space: nowrap'>%1 de %2</span>"
 
-#: data/System/ModacPrintLayoutTemplate.txt:34
+#: data/System/ModacPrintLayoutTemplate.txt
 msgid "Pages <span style='white-space: nowrap'>%1 to %2</span>"
 msgstr "Pages <span style='white-space: nowrap'>%1 vers %2</span>"
 
-#: data/System/MAPrinceModPrintDialog.txt:4
+#: data/System/MAPrinceModPrintDialog.txt
 msgid "Please choose format:"
 msgstr "S'il vous plaît choisir le format:"
 
-#: data/System/MAPrinceModPrintDialog.txt:14
+#: data/System/MAPrinceModPrintDialog.txt
 msgid "Print in landscape mode"
 msgstr "Imprimer en mode paysage"
 
-#: data/System/MAPrinceModPrintDialog.txt:12
+#: data/System/MAPrinceModPrintDialog.txt
 msgid "Print in portrait mode"
 msgstr "Imprimer en mode portrait"
 
-#: data/System/ModacPrintLayoutTemplate.txt:16
-msgid ""
-"This printout is a copy and not subject to updating service.<br />Before "
-"use, the respective user has to make sure that the copy is up to date.<br /"
-">Print date:"
+#: data/System/MAPrinceModPlugin.txt
+msgid "Print tab2"
 msgstr ""
-"Cette impression est une copie et non soumis à la mise à jour de service. "
-"<br /> Avant utilisation, l'utilisateur concerné doit s'assurer que la copie "
-"est à jour. <br /> Imprimer la Date"
 
-#: data/System/ModacPrintLayoutTemplate.txt:24
+#: data/System/ModacPrintLayoutTemplate.txt
+msgid "This printout is a copy and not subject to updating service.<br />Before use, the respective user has to make sure that the copy is up to date.<br />Print date:"
+msgstr "Cette impression est une copie et non soumis à la mise à jour de service. <br /> Avant utilisation, l'utilisateur concerné doit s'assurer que la copie est à jour. <br /> Imprimer la Date"
+
+#: data/System/ModacPrintLayoutTemplate.txt
 msgid "of"
 msgstr "de"

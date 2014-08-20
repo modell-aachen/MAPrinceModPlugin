@@ -15,55 +15,54 @@ msgstr ""
 "X-Poedit-Country: Taiwan\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: data/System/MAPrinceModPrintDialog.txt:17
+#: data/System/MAPrinceModPrintDialog.txt
 msgid "Cancel"
 msgstr "取消"
 
-#: data/System/MAPrinceModPrintDialog.txt:16
+#: data/System/MAPrinceModPrintDialog.txt
 msgid "Generate PDF"
 msgstr "生成PDF"
 
-#: data/System/MAPrinceModPrintDialog.txt:2
+#: data/System/MAPrinceModPrintDialog.txt
 msgid "PDF-Options"
 msgstr "PDF-选项"
 
-#: data/System/MAPrinceModPlugin.txt:50 data/System/MAPrinceModPlugin.txt:61
+#: data/System/MAPrinceModPlugin.txt
 msgid "PDF-Print"
 msgstr "PDF-打印"
 
-#: data/System/ModacPrintLayoutTemplate.txt:24
+#: data/System/ModacPrintLayoutTemplate.txt
 msgid "Page"
 msgstr "页面"
 
-#: data/System/ModacPrintLayoutTemplate.txt:23
+#: data/System/ModacPrintLayoutTemplate.txt
 msgid "Page <span style='white-space: nowrap'>%1 of %2</span>"
 msgstr "页面 %2中<span style='空白: 不换行'>%1</span>"
 
-#: data/System/ModacPrintLayoutTemplate.txt:34
+#: data/System/ModacPrintLayoutTemplate.txt
 msgid "Pages <span style='white-space: nowrap'>%1 to %2</span>"
 msgstr "页面 %1到%2<span style='空白: 不换行'></span>"
 
-#: data/System/MAPrinceModPrintDialog.txt:4
+#: data/System/MAPrinceModPrintDialog.txt
 msgid "Please choose format:"
 msgstr "请选择格式："
 
-#: data/System/MAPrinceModPrintDialog.txt:14
+#: data/System/MAPrinceModPrintDialog.txt
 msgid "Print in landscape mode"
 msgstr "横打"
 
-#: data/System/MAPrinceModPrintDialog.txt:12
+#: data/System/MAPrinceModPrintDialog.txt
 msgid "Print in portrait mode"
 msgstr "纵打"
 
-#: data/System/ModacPrintLayoutTemplate.txt:16
-msgid ""
-"This printout is a copy and not subject to updating service.<br />Before "
-"use, the respective user has to make sure that the copy is up to date.<br /"
-">Print date:"
+#: data/System/MAPrinceModPlugin.txt
+msgid "Print tab2"
 msgstr ""
-"此打印输出仅是拷贝不受更新服务影响<br />在使用前，请用户确认副本为最新。<br /"
-">打印日期:"
 
-#: data/System/ModacPrintLayoutTemplate.txt:24
+#: data/System/ModacPrintLayoutTemplate.txt
+msgid "This printout is a copy and not subject to updating service.<br />Before use, the respective user has to make sure that the copy is up to date.<br />Print date:"
+msgstr "此打印输出仅是拷贝不受更新服务影响<br />在使用前，请用户确认副本为最新。<br />打印日期:"
+
+#: data/System/ModacPrintLayoutTemplate.txt
 msgid "of"
 msgstr "在"
