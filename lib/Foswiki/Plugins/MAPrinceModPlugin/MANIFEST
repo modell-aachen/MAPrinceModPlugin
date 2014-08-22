@@ -3,9 +3,10 @@ data/System/MAPrinceModPlugin.txt 0664 Documentation
 data/System/MAPrinceModPrintDialog.txt 0664
 data/System/ModacPrintLayoutTemplate.txt 0664
 templates/viewprint.modac.tmpl 0664
-lib/Foswiki/Plugins/MAPrinceModPlugin.pm 0644 Perl module
-lib/Foswiki/Plugins/MAPrinceModPlugin/Config.spec 0644
-lib/Foswiki/Plugins/SafeWikiPlugin/Signatures/MAPrinceModPlugin.pm 0644
+lib/Foswiki/Plugins/MAPrinceModPlugin.pm 0444 Perl module
+lib/Foswiki/Plugins/MAPrinceModPlugin/Config.spec 0444
+lib/Foswiki/Plugins/SafeWikiPlugin/Signatures/MAPrinceModPlugin.pm 0444
+locale/MAPrinceModPlugin/cs.po 0664
 locale/MAPrinceModPlugin/de.po 0664
 locale/MAPrinceModPlugin/fr.po 0664
 locale/MAPrinceModPlugin/it.po 0664
