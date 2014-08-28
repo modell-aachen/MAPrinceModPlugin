@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2014-08-01 15:15+0200\n"
+"PO-Revision-Date: 2014-08-28 12:22+0200\n"
 "Last-Translator: Modell Aachen <access@modell-aachen.de>\n"
 "Language-Team: French <http://translate.modell-"
 "aachen.de/projects/maprincemodplugin/releasebarcelona/fr/>\n"
@@ -48,7 +48,7 @@ msgstr "Pages <span style='white-space: nowrap'>%1 vers %2</span>"
 
 #: data/System/MAPrinceModPrintDialog.txt:4
 msgid "Please choose format:"
-msgstr "S'il vous plaît choisir le format:"
+msgstr "S'il vous plaît choisir le format :"
 
 #: data/System/MAPrinceModPrintDialog.txt:14
 msgid "Print in landscape mode"
@@ -65,7 +65,7 @@ msgid "This printout is a copy and not subject to updating service.<br /"
 msgstr ""
 "Cette impression est une copie et non soumis à la mise à jour de service. "
 "<br /> Avant utilisation, l'utilisateur concerné doit s'assurer que la copie "
-"est à jour. <br /> Imprimer la Date:"
+"est à jour. <br /> Imprimer la Date :"
 
 #: data/System/ModacPrintLayoutTemplate.txt:24
 msgid "of"
