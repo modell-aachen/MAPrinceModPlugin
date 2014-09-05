@@ -93,7 +93,7 @@ sub completePageHandler {
   #$_[0] =~ s#style="\s*"##g;
 
   # replace image tags
-  $_[0] =~ s/\<img(.*?)(\/?)\>/rewriteImgTag($1, $url, $user, $3)/ige;
+  $_[0] =~ s/\<img(.*?)(\/?)\>/rewriteImgTag($1, $url, $user, $2)/ige;
 
   # remove (large) predefined heights from tables
   $_[0] =~ s#(\<table[^>]*)(height=["'])(\d+)(["'])#limitHeight($1,$2,$3,$4)#ige;
