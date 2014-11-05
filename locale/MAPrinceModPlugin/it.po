@@ -4,19 +4,19 @@ msgstr ""
 
 #: data/System/MAPrinceModPrintDialog.txt
 msgid "Generate PDF"
-msgstr ""
+msgstr "Genera PDF"
 
 #: data/System/MAPrinceModPrintDialog.txt
 msgid "PDF-Options"
-msgstr ""
+msgstr "Opzioni PDF"
 
 #: data/System/MAPrinceModPlugin.txt
 msgid "PDF-Print"
-msgstr ""
+msgstr "Stampa PDF"
 
 #: data/System/ModacPrintLayoutTemplate.txt
 msgid "Page"
-msgstr ""
+msgstr "Pagina"
 
 #: data/System/ModacPrintLayoutTemplate.txt
 msgid "Page <span style='white-space: nowrap'>%1 of %2</span>"
@@ -28,15 +28,15 @@ msgstr ""
 
 #: data/System/MAPrinceModPrintDialog.txt
 msgid "Please choose format:"
-msgstr ""
+msgstr "Scegliere formato"
 
 #: data/System/MAPrinceModPrintDialog.txt
 msgid "Print in landscape mode"
-msgstr ""
+msgstr "Stampa in orizzontale"
 
 #: data/System/MAPrinceModPrintDialog.txt
 msgid "Print in portrait mode"
-msgstr ""
+msgstr "Stampa in verticale"
 
 #: data/System/MAPrinceModPlugin.txt
 msgid "Print tab2"
@@ -48,4 +48,4 @@ msgstr ""
 
 #: data/System/ModacPrintLayoutTemplate.txt
 msgid "of"
-msgstr ""
+msgstr "di"
