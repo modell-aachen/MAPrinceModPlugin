@@ -70,9 +70,9 @@ Usually all tabs are printed. You can alternatively only print selected tabs:
 ...
 %ENDTABPANE%
 </div></verbatim>
-   * Give each tab an id (_valid css class_)
-   * Print the page with the id of the tab as URL parameter =printtab=<pre>
-%%NOP%IF{"context MAPrinceModPluginEnabled" then="&lt;a href=\"%%NOP%SCRIPTURL{"view"}%/%%NOP%SYSTEMWEB%/MAPrinceModPrintDialog?skin=text&amp;section=dialog&amp;pweb=%%NOP%ENCODE{"%%NOP%INCLUDINGWEB%" type="url"}%&amp;ptopic=%%NOP%ENCODE{"%%NOP%INCLUDINGTOPIC%" type="url"}%&amp;landscape=%%NOP%LANDSCAPE{default="0"}%%RED%;printParams=printtab;showtab=tab2%ENDCOLOR%\" class=\"jqUIDialogLink modacPrintHide\"&gt;%%NOP%MAKETEXT{"Print tab2"}%&lt;/a&gt;$
+   * Give each tab an id (_valid css class_, eg. 'tab2')
+   * Print the page with the id of the tab as URL parameter =showtab=<pre>
+%%NOP%IF{"context MAPrinceModPluginEnabled" then="&lt;a href=\"%%NOP%SCRIPTURL{"view"}%/%%NOP%SYSTEMWEB%/MAPrinceModPrintDialog?skin=text&amp;section=dialog&amp;pweb=%%NOP%ENCODE{"%%NOP%INCLUDINGWEB%" type="url"}%&amp;ptopic=%%NOP%ENCODE{"%%NOP%INCLUDINGTOPIC%" type="url"}%&amp;landscape=%%NOP%LANDSCAPE{default="0"}%%RED%;printParams=showtab;showtab=tab2%ENDCOLOR%\" class=\"jqUIDialogLink modacPrintHide\"&gt;%%NOP%MAKETEXT{"Print tab2"}%&lt;/a&gt;$
 "}%
 </pre>
 
