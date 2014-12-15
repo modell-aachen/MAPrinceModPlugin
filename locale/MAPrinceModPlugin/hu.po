@@ -7,14 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2014-12-15 15:49+0200\n"
+"Last-Translator: Modell Aachen <access@modell-aachen.de>\n"
+"Language-Team: Hungarian <http://translate.modell-"
+"aachen.de/projects/maprincemodplugin/releasenew-york/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 1.9\n"
 
 #: data/System/MAPrinceModPrintDialog.txt
 msgid "Cancel"
@@ -38,11 +40,11 @@ msgstr "Lap"
 
 #: data/System/ModacPrintLayoutTemplate.txt
 msgid "Page <span style='white-space: nowrap'>%1 of %2</span>"
-msgstr "Lap"
+msgstr "Lap <span style='white-space: nowrap'>%1 of %2</span>"
 
 #: data/System/ModacPrintLayoutTemplate.txt
 msgid "Pages <span style='white-space: nowrap'>%1 to %2</span>"
-msgstr "Lapok"
+msgstr "Lapok <span style='white-space: nowrap'>%1 to %2</span>"
 
 #: data/System/MAPrinceModPrintDialog.txt
 msgid "Please choose format:"
