@@ -10,55 +10,55 @@ msgstr ""
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
-"Content-Transfer-Encoding: 8bit\n"
 "Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: data/System/MAPrinceModPrintDialog.txt
 msgid "Cancel"
-msgstr ""
+msgstr "Visszavonás"
 
 #: data/System/MAPrinceModPrintDialog.txt
 msgid "Generate PDF"
-msgstr ""
+msgstr "PDF készítése"
 
 #: data/System/MAPrinceModPrintDialog.txt
 msgid "PDF-Options"
-msgstr ""
+msgstr "PDF lehetőségek"
 
 #: data/System/MAPrinceModPlugin.txt
 msgid "PDF-Print"
-msgstr ""
+msgstr "PDF nyomtatás"
 
 #: data/System/ModacPrintLayoutTemplate.txt
 msgid "Page"
-msgstr ""
+msgstr "Lap"
 
 #: data/System/ModacPrintLayoutTemplate.txt
 msgid "Page <span style='white-space: nowrap'>%1 of %2</span>"
-msgstr ""
+msgstr "Lap"
 
 #: data/System/ModacPrintLayoutTemplate.txt
 msgid "Pages <span style='white-space: nowrap'>%1 to %2</span>"
-msgstr ""
+msgstr "Lapok"
 
 #: data/System/MAPrinceModPrintDialog.txt
 msgid "Please choose format:"
-msgstr ""
+msgstr "Válassz formátumot:"
 
 #: data/System/MAPrinceModPrintDialog.txt
 msgid "Print in landscape mode"
-msgstr ""
+msgstr "Nyomtatás Fekvőkép módban"
 
 #: data/System/MAPrinceModPrintDialog.txt
 msgid "Print in portrait mode"
-msgstr ""
+msgstr "Nyomtatás Állókép módban"
 
 #: data/System/MAPrinceModPlugin.txt
 msgid "Print tab2"
-msgstr ""
+msgstr "Nyomtatás"
 
 #: data/System/ModacPrintLayoutTemplate.txt
 msgid ""
@@ -66,7 +66,10 @@ msgid ""
 "use, the respective user has to make sure that the copy is up to date.<br /"
 ">Print date:"
 msgstr ""
+"Ez egy másolat és nem kapcsolódik felülvizsgálathoz. Használat előtt a "
+"felhasználó győződjön meg arról, hogy ez egy érvényes, felülvizsgált "
+"dokumentum."
 
 #: data/System/ModacPrintLayoutTemplate.txt
 msgid "of"
-msgstr ""
+msgstr "of"
