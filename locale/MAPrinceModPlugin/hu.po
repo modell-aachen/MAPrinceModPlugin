@@ -68,9 +68,9 @@ msgid ""
 "use, the respective user has to make sure that the copy is up to date.<br /"
 ">Print date:"
 msgstr ""
-"Ez egy másolat és nem kapcsolódik felülvizsgálathoz. Használat előtt a "
+"Ez egy másolat és nem kapcsolódik felülvizsgálathoz.<br /> Használat előtt a "
 "felhasználó győződjön meg arról, hogy ez egy érvényes, felülvizsgált "
-"dokumentum."
+"dokumentum:"
 
 #: data/System/ModacPrintLayoutTemplate.txt
 msgid "of"
