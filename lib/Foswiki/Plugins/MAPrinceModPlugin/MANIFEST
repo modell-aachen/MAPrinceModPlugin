@@ -9,6 +9,7 @@ lib/Foswiki/Plugins/SafeWikiPlugin/Signatures/MAPrinceModPlugin.pm 0444
 locale/MAPrinceModPlugin/cs.po 0664
 locale/MAPrinceModPlugin/de.po 0664
 locale/MAPrinceModPlugin/fr.po 0664
+locale/MAPrinceModPlugin/hu.po 0644
 locale/MAPrinceModPlugin/it.po 0664
 locale/MAPrinceModPlugin/zh-cn.po 0664
 pub/System/MAPrinceModPlugin/draft_de.png 0644
