@@ -74,6 +74,9 @@ sub completePageHandler {
 
   # Get base path to images
   my $url = Foswiki::Func::getUrlHost();
+  $url =~ s#^https?://www\.#http://#; # workaround for optional www
+  $url =~ s#^https://#http://#;
+
 
   # Get user for permissions
   my $user = $Foswiki::Plugins::SESSION->{user};
@@ -92,8 +95,13 @@ sub completePageHandler {
   #$_[0] =~ s#(width|height):\s*\d+(px|%);##g;
   #$_[0] =~ s#style="\s*"##g;
 
-  # replace image tags
-  $_[0] =~ s/\<img(.*?)(\/?)\>/rewriteImgTag($1, $url, $user, $2)/ige;
+  # replace image|link|import tags
+  $_[0] =~ s/(\<(?:img|script)\s.*?src=['"])(.*?)(['"].*?\/?\>)/rewriteTarget($1, $2, $3, $url, $user)/ige;
+  $_[0] =~ s/(\<link\s.*?href=['"])(.*?)(['"].*?\/?\>)/rewriteTarget($1, $2, $3, $url, $user)/ige;
+  $_[0] =~ s/(\@import\s+url\(['"]?)(.*?)(['"]?\s*\))/rewriteTarget($1, $2, $3, $url, $user)/ige;
+  # <a ... style="background-image: url(!!!)">...</a>
+  $_[0] =~ s/(style='[^']*?:\s*url\("?)([^'")]*?)("?\s*\))/rewriteTarget($1, $2, $3, $url, $user)/ige;
+  $_[0] =~ s/(style="[^"]*?:\s*url\('?)([^'")]*?)('?\s*\))/rewriteTarget($1, $2, $3, $url, $user)/ige;
 
   # remove (large) predefined heights from tables
   $_[0] =~ s#(\<table[^>]*)(height=["'])(\d+)(["'])#limitHeight($1,$2,$3,$4)#ige;
@@ -140,29 +148,27 @@ sub limitStyleWidth {
   return "$tag$open${width}px$close";
 }
 
-sub rewriteImgTag {
+sub rewriteTarget {
   my $tagContents = $_[0];
-  my $url = $_[1];
-  my $user = $_[2];
-  my $end = $_[3] || '';
+  my $target = $_[1];
+  my $end = $_[2] || '';
+  my $url = $_[3];
+  my $user = $_[4];
 
-  my $url2 = $url;
-  $url2 =~ s#http://www\.#http://#; # workaround for optional www
+  my $targetCopy = $target;
+  $targetCopy =~ s#^https?://(?:www\.)?#http://#;
+  $targetCopy =~ s#$url##;
+
+  my $puburl = $Foswiki::cfg{PubUrlPath};
+  my $viewfile = "$Foswiki::cfg{ScriptUrlPath}/viewfile$Foswiki::cfg{ScriptSuffix}";
 
   # Check if image is from our Foswiki
-  if($tagContents =~ m#$url|$url2|/pub/#) {
-
-     # Ok, lets find out which Topic/Web...
-     # first find Foswiki-Url, then /bin or /bin/viewfile or plain /, then save Web in $1, finally store rest in $2. Deliminator is "' or ? (don't want cgi-part)
-     $tagContents =~ m#(?:$url|$url2)?/(?:pub/|bin/viewfile/)(.*?)/([^'"?]*)#;
+  if($targetCopy =~ m#^(?:$puburl|$viewfile)/(.*?)/(.*?)/([^?]*)#) {
      my $web = $1;
      my $topic = $2;
-     # now cut the image-File from topic
-     # everything between / and ? is Image. Rest will be removed.
-     $topic =~ s#/([^?]*).*$##;     # this comment is for vim
-     my $image = $1;
+     my $file = $3;
 
-     # now check if user may view this picture
+     # now check if user may view this
      # However anyone may view System
      my $hasAccess = $web eq 'System' || Foswiki::Func::checkAccessPermission('VIEW',$user,'',$topic,$web,undef);
 
@@ -170,14 +176,16 @@ sub rewriteImgTag {
      # if we have access write a new image-url pointing to local directory
      # but forbit linking to local files other than from this plugin
      if($hasAccess && not $tagContents =~ m#file://#i ) {
-       $tagContents =~ s#src=(["']).*?["']#src=\"file://$Foswiki::cfg{PubDir}/$web/$topic/$image\"#g;
+       $target = "file://$Foswiki::cfg{PubDir}/$web/$topic/$file";
      } else {
-       # Insert "Access Denied" image
-       my $deniedImage = $Foswiki::cfg{Extensions}{MAPrinceModPlugin}{err} || "/System/MAPrinceModPlugin/err.png";
-       $tagContents =~ s#src=(["']).*?["']#src=\"file://$Foswiki::cfg{PubDir}$deniedImage\"#g;
+       # Insert "Access Denied" image if the tag is an image
+       if($tagContents =~ m#\<img#) {
+           my $deniedImage = $Foswiki::cfg{Extensions}{MAPrinceModPlugin}{err} || "/System/MAPrinceModPlugin/err.png";
+           $target = "file://$Foswiki::cfg{PubDir}$deniedImage";
+       }
      }
   }
-  return "<img$tagContents$end>";
+  return "$tagContents$target$end";
 }
 
 1;
