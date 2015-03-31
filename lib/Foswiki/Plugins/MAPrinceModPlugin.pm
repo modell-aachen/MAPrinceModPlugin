@@ -105,7 +105,7 @@ sub completePageHandler {
 
   # remove (large) predefined heights from tables
   $_[0] =~ s#(\<table[^>]*)(height=["'])(\d+)(["'])#limitHeight($1,$2,$3,$4)#ige;
-  $_[0] =~ s#(\<table[^>]*)(style=["']([^'"]*)height:\s*["'])(\d+)(["'])#limitHeight($1,$2,$3,$4)#ige;
+  $_[0] =~ s#(\<table[^>]*?style=["'](?:[^'"]*?))(height:\s*)(\d+)(\s*(?:px|[;"']))#limitHeight($1,$2,$3,$4)#ige;
 
   # remove NAMEFILTER, since it is not properly escaped and we do not need it for printing
   $_[0] =~ s#"NAMEFILTER":\s?".*"#"NAMEFILTER": ""#;
@@ -117,7 +117,7 @@ sub limitHeight {
     my $maxHeight = $Foswiki::cfg{Extensions}{MAPrinceModPlugin}{MaxHeight} || 250;
 
     if($height > 250) { # XXX arbitrary number
-        return $tag;
+        return "${tag}disabled$open$height$close";
     } else {
         return "$tag$open$height$close";
     }
