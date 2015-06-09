@@ -119,7 +119,7 @@ sub limitHeight {
     if($height > 250) { # XXX arbitrary number
         return "${tag}disabled$open$height$close";
     } else {
-        return "$tag$open$height$close";
+        return "${tag}min-$open$height$close";
     }
 }
 
