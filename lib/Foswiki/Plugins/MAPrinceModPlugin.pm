@@ -116,7 +116,7 @@ sub limitHeight {
 
     my $maxHeight = $Foswiki::cfg{Extensions}{MAPrinceModPlugin}{MaxHeight} || 250;
 
-    if($height > 250) { # XXX arbitrary number
+    if($height > $maxHeight) {
         return "${tag}disabled$open$height$close";
     } else {
         return "${tag}min-$open$height$close";
