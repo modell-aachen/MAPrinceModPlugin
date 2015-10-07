@@ -184,6 +184,11 @@ td {
 	padding: 4px;
 }
 
+body.printLandscape img {
+	max-height: 130mm;
+	max-width: 255mm;
+}
+
 img {
 	/*display:block; 
 	margin-left:auto; margin-right:auto;*/

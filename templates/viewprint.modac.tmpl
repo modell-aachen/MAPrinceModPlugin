@@ -10,7 +10,7 @@
 %TMPL:DEF{"script:skintemplate"}%%TMPL:END%
 
 
-%TMPL:DEF{"bodyclassname"}%patternViewPage patternPrintPage%TMPL:END%
+%TMPL:DEF{"bodyclassname"}%patternViewPage patternPrintPage%IF{"'%URLPARAM{"landscape" default="%LANDSCAPE%"}%' = '1'" then=" printLandscape"}%%TMPL:END%
 
 %TMPL:DEF{"topicactionbuttons"}%%TMPL:END%
 
