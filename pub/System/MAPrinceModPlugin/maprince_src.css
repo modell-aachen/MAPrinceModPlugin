@@ -207,7 +207,19 @@ tr, td, th { page-break-inside: avoid }
 	border-collapse: collapse;
 	border: solid 1px #AAA;
 }
+/* ------- Auto numbering ------------------*/
+.Modac_Standard.autonumbered tbody {
+   counter-reset: rowNumber;
+}
+.Modac_Standard.autonumbered tbody tr {
+   counter-increment: rowNumber;
+}
 
+.Modac_Standard.autonumbered tbody tr td:first-child::before {
+    content: counter(rowNumber, decimal);
+    min-width: 1em;
+    margin-right: 0.5em;
+}
 /* -------------------------- Modac Tables ----------------------------*/
 
 /*-------- Modac_Standard = MA_table --------*/
