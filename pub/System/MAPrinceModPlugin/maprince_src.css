@@ -408,36 +408,3 @@ a.pdfLink, a.pdfPage, a.pdfPages {
 	border-color: #f8fcff;
 	border-width: 8px 1px;
 }
-table.atpSearch { 
-	width: 100%; 
-	border: 0 !important; 
-	border-collapse: collapse; 
-}
-.atpSearch thead, .atpSearch thead { 
-	border: 0 !important;
-}
-.atpSearch th { 
-	border: 0 !important;
-	background-color: #dddddd !important; 
-	color: #000000 !important; 
-	padding: 8px !important; 
-}
-.atpSearch tbody tr:first-child td { 
-	border-top: none; 
-}
-.atpSearch td { 
-	border: solid #ffffff !important; 
-	border-width: 1px 0 0 0 !important; 
-	padding: 8px !important; 
-	background: #eeeeee !important; 
-	color: #333 !important; 
-}
-.atpSearch td.secondary { 
-	color: #666; 
-}
-.atpSearch .ui-icon { 
-	background-image: url('../JQueryPlugin/themes/foswiki/images/ui-icons-famfamfam.png'); 
-}
-.jqTab {
-	border: 0 !important;
-}
