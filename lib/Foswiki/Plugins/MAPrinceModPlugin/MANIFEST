@@ -16,3 +16,4 @@ pub/System/MAPrinceModPlugin/draft_de.png 0644
 pub/System/MAPrinceModPlugin/draft_en.png 0644
 pub/System/MAPrinceModPlugin/err.png 0644 Error-Picture
 pub/System/MAPrinceModPlugin/maprince.css 0644 Css for printing
+pub/System/MAPrinceModPlugin/maprince.js 0644 JS to prepare page for printing
