@@ -222,7 +222,7 @@ sub maintenanceHandler {
 
                 if($cfg =~ m#\s$princeRegExp#) {
                     my $newCfg = $cfg;
-                    $newCfg =~ s#($princeRegExp)#$script/JQueryPlugin/jquery-2.1.3.js $1#;
+                    $newCfg =~ s#($princeRegExp)#$script/JQueryPlugin/jquery-2.1.4.js $1#;
                     return {
                         result => 1,
                         priority => $Foswiki::Plugins::MaintenancePlugin::ERROR,
@@ -235,7 +235,7 @@ sub maintenanceHandler {
                     result => 1,
                     priority => $Foswiki::Plugins::MaintenancePlugin::ERROR,
                     solution => "It seems MAPrinceModPlugin's JavaScript is not configured correctly. Please load JQueryPlugin and maprince.js, e.g.:</br>"
-                       . "<pre>{GenPDFPrincePlugin}[PrinceCmd} = \"$cfg $script/JQueryPlugin/jquery-2.1.3.js $script/MAPrinceModPlugin/maprince.js\"</pre>"
+                       . "<pre>{GenPDFPrincePlugin}[PrinceCmd} = \"$cfg $script/JQueryPlugin/jquery-2.1.4.js $script/MAPrinceModPlugin/maprince.js\"</pre>"
                };
              } else {
                  return { result => 0 };
