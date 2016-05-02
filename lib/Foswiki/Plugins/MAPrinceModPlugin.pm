@@ -190,8 +190,8 @@ sub rewriteTarget {
 
 sub maintenanceHandler {
     Foswiki::Plugins::MaintenancePlugin::registerCheck("MAPrinceModPlugin:JavaScriptConfig", {
-        name => "MAPrinceModPlugin JavaScript configuration",
-        description => "Check if JavaScript for printing is configured correctly",
+        name => "GenPDFPlugin JavaScript/CSS configuration",
+        description => "Check if JavaScript for printing is configured correctly.",
         check => sub {
             my $cfg = $Foswiki::cfg{GenPDFPrincePlugin}{PrinceCmd};
             my $jqueryRegExp = qr#--script=\S*/pub/System/JQueryPlugin/jquery-\S*\.js#;
@@ -204,7 +204,7 @@ sub maintenanceHandler {
                 return {
                     result => 1,
                     priority => $Foswiki::Plugins::MaintenancePlugin::ERROR,
-                    solution => "JQueryPlugin and MAPrinceModPlugin are loaded in wrong order in PrinceCmd. Put jquery before maprince, eg.:"
+                    solution => "JQueryPlugin and MAPrinceModPlugin are loaded in wrong order in PrinceCmd. Put jquery before maprince, e.g.:"
                        . "<pre>{GenPDFPrincePlugin}{PrinceCmd} = \"$newCfg\"</pre>"
                };
             }
@@ -215,7 +215,7 @@ sub maintenanceHandler {
                     return {
                         result => 1,
                         priority => $Foswiki::Plugins::MaintenancePlugin::ERROR,
-                        solution => "MAPrinceModPlugin is not loaded in PrinceCmd. Put after jQueryPlugin, eg.:"
+                        solution => "MAPrinceModPlugin is not loaded in PrinceCmd. Put after jQueryPlugin, e.g.:"
                            . "<pre>{GenPDFPrincePlugin}{PrinceCmd} = \"$cfg $script/MAPrinceModPlugin/maprince.js\"</pre>"
                    };
                 }
@@ -226,7 +226,7 @@ sub maintenanceHandler {
                     return {
                         result => 1,
                         priority => $Foswiki::Plugins::MaintenancePlugin::ERROR,
-                        solution => "JQueryPlugin is not loaded before MAPrinceModPlugin in PrinceCmd. Put it before it, eg.:"
+                        solution => "JQueryPlugin is not loaded before MAPrinceModPlugin in PrinceCmd. Put it before it, e.g.:"
                            . "<pre>{GenPDFPrincePlugin}{PrinceCmd} = \"$newCfg\"</pre>"
                    };
                 }
@@ -234,8 +234,8 @@ sub maintenanceHandler {
                 return {
                     result => 1,
                     priority => $Foswiki::Plugins::MaintenancePlugin::ERROR,
-                    solution => "It seems MAPrinceModPlugin's JavaScript is not configured correctly. Please load JQueryPlugin and maprince.js, eg.:</br>"
-                       . "<pre>{GenPDFPrincePlugin} = \"$cfg $script/JQueryPlugin/jquery-2.1.3.js $script/MAPrinceModPlugin/maprince.js\"</pre>"
+                    solution => "It seems MAPrinceModPlugin's JavaScript is not configured correctly. Please load JQueryPlugin and maprince.js, e.g.:</br>"
+                       . "<pre>{GenPDFPrincePlugin}[PrinceCmd} = \"$cfg $script/JQueryPlugin/jquery-2.1.3.js $script/MAPrinceModPlugin/maprince.js\"</pre>"
                };
              } else {
                  return { result => 0 };
