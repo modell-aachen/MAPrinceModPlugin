@@ -403,8 +403,18 @@ a.pdfLink, a.pdfPage, a.pdfPages {
 	margin-right: 4px;
 	vertical-align: middle;
 }
-.metaDataHead td { 
+td.metaDataHead{
     padding: 8px;
 	border-color: #f8fcff;
 	border-width: 8px 1px;
+}
+table.tasks-table {
+	border-spacing: 0px !important;
+}
+.pdetails {
+   background-color: white !important;
+}
+.pspacer {
+   height: 20px;
+   background-color: white !important;
 }
