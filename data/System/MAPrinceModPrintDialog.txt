@@ -1,5 +1,5 @@
 %STARTSECTION{"dialog"}%
-<div id="printDialog" title="%MAKETEXT{"PDF-Options"}%" class="jqUIDialog { modal:true, resizable:true, draggable:true, height:2%IF{"$'printTasks'" then="70" else="40"}%, width:300}">
+<div id="printDialog" title="%MAKETEXT{"PDF-Options"}%" class="jqUIDialog { modal:true, resizable:true, draggable:true, height:2%IF{"$'URLPARAM{printTasks}'=''" then="40" else="70"}%, width:300}">
 <div id="printSelection">
 ---++ %MAKETEXT{"Please choose format:"}%
 <form id="printDialogForm" action="%SCRIPTURLPATH{"view"}%/%URLPARAM{"pweb" default="%USERSWEB%"}%/%URLPARAM{"ptopic"}%" onsubmit="jQuery('#printDialog').dialog('close');"> <!-- It seems I can't use both, jqUIDialogSubmit and jqUIDialogClose together, so I'll need the onsubmit -->
@@ -12,7 +12,7 @@
     <input type="radio" name="landscape" value="0" %IF{"$'URLPARAM{landscape}' != '1'" then="checked='checked'"}%><img src="%PUBURLPATH%/%SYSTEMWEB%/FamFamFamSilkCompanion1Icons/page_portrait_shot.png" /> %MAKETEXT{"Print in portrait mode"}% </input>
     <br />
     <input type="radio" name="landscape" value="1" %IF{"$'URLPARAM{landscape}' = '1'" then="checked='checked'"}%><img src="%PUBURLPATH%/%SYSTEMWEB%/FamFamFamSilkCompanion1Icons/page_landscape_shot.png" /> %MAKETEXT{"Print in landscape mode"}% </input> <p />
-    <!-- printTasks -->%IF{"$'printTasks'"
+    <!-- printTasks -->%IF{"$'URLPARAM{printTasks}'!=''"
     then="<input type=\"checkbox\" name=\"taskDetails\" value=\"1\">%MAKETEXT{"Print task details"}%</input>"}%<!-- /printTasks -->
 </p><p>
     <a class="jqUIDialogButton jqUIDialogSubmit {icon: 'ui-icon-circle-check'}">%MAKETEXT{"Generate PDF"}%</a>
