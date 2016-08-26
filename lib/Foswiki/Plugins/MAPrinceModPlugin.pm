@@ -95,26 +95,20 @@ sub completePageHandler {
     my $user = $Foswiki::Plugins::SESSION->{user};
     $user = Foswiki::Func::getWikiName($user);
 
-    # XXX Das sind alles nur Workarounds
-    # remove all those plentiful nowraps (we like wraps)
-    $_[0] =~ s/white-space: nowrap;//g;
-    $_[0] =~ s/nowrap="nowrap"//g;
+    # TODO: move these into maprince.js
     # remove <p></p> from tables as they are usually not desired
     $_[0] =~ s#<td([^>]*)>\n(<p></p>|<p\s*/>)#<td$1>\n#g;
-    # limit width
-    $_[0] =~ s#(<[^>]*?style=['"][^'"]*)(width:\s*)(\d+)(?:px)?\s*(;|['"])#limitStyleWidth($1,$2,$3,$4)#ige;
-    $_[0] =~ s#(<[^>]*?)(width=['"])(\d+)(?:px)?;?(['"])#limitWidth($1,$2,$3,$4)#ige;
 
-    # remove (large) predefined heights from tables, tr, td and table headers
-    $_[0] =~ s#(\<\s*(?:table|tr|td|th)\s[^>]*)(height=["'])(\d+)(["'])#limitHeight($1,$2,$3,$4)#ige;
-    $_[0] =~ s#(\<\s*(?:table|tr|td|th)\s[^>]*?style=["'](?:[^'"]*?))(height:\s*)(\d+)(\s*(?:px|[;"']))#limitHeight($1,$2,$3,$4)#ige;
+    # limit widths and heights
+    my $maxWidth = $Foswiki::cfg{Extensions}{MAPrinceModPlugin}{MaxWidth} || 680;
+    my $maxHeight = $Foswiki::cfg{Extensions}{MAPrinceModPlugin}{MaxHeight} || 250;
+    my $hyphens = $Foswiki::cfg{Extensions}{MAPrinceModPlugin}{Hypens} || 0;
+    push @scripts, "<script class='MAPrinceModPluginMaxWidth' type='text/plain'>$maxWidth</script>";
+    push @scripts, "<script class='MAPrinceModPluginMaxHeight' type='text/plain'>$maxHeight</script>";
+    push @scripts, "<script class='MAPrinceModPluginHyphens' type='text/plain'>$hyphens</script>";
 
     # remove NAMEFILTER, since it is not properly escaped and we do not need it for printing
     $_[0] =~ s#"NAMEFILTER":\s?".*"#"NAMEFILTER": ""#;
-
-    # clean url params in anchors as prince can't generate proper xrefs otherwise;
-    # hope this gets fixed in prince at some time
-    $_[0] =~ s/(href=["'])\?.*(#[^"'\s])+/$1$2/g;
 
     # mappings for the princeGet rest handler
     # This is to allow ACL checks with the current user.
@@ -269,43 +263,6 @@ sub completePageHandler {
         baseweb => $baseWeb
     );
     Foswiki::Func::redirectCgiQuery( undef, $redirect );
-}
-
-sub limitHeight {
-    my ($tag, $open, $height, $close) = @_;
-
-    my $maxHeight = $Foswiki::cfg{Extensions}{MAPrinceModPlugin}{MaxHeight} || 250;
-
-    if($height > $maxHeight) {
-        return "${tag}disabled$open$height$close";
-    } else {
-        return "${tag}min-$open$height$close";
-    }
-}
-
-sub limitWidth {
-    my ($tag, $open, $width, $close) = @_;
-
-    my $maxWidth = $Foswiki::cfg{Extensions}{MAPrinceModPlugin}{MaxWidth} || 680;
-
-    if($tag !~ m#^<\s*(?:svg) #i && $width > $maxWidth) {
-        return "$tag$open${maxWidth}px$close";
-    } else {
-        return "$tag$open${width}px$close";
-    }
-}
-
-
-sub limitStyleWidth {
-    my ($tag, $open, $width, $close) = @_;
-
-    my $maxWidth = $Foswiki::cfg{Extensions}{MAPrinceModPlugin}{MaxWidth} || 680;
-    my $hyphens = ($Foswiki::cfg{Extensions}{MAPrinceModPlugin}{Hypens})?'hyphens:auto':'hyphens:none';
-
-    if($tag !~ m#^<\s*img #i && $width > $maxWidth) {
-        return "$tag$open${maxWidth}px;$hyphens$close";
-    }
-    return "$tag$open${width}px$close";
 }
 
 sub maintenanceHandler {
