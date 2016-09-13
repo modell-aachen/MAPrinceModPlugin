@@ -72,3 +72,7 @@ msgstr ""
 #: data/System/ModacPrintLayoutTemplate.txt
 msgid "of"
 msgstr "von"
+
+#: data/System/MAPrinceModPrintDialogTaskDetails.txt
+msgid "Print task details"
+msgstr "Aufgabendetails drucken"

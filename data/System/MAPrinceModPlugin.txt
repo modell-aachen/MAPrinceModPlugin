@@ -79,7 +79,7 @@ Usually all tabs are printed. You can alternatively only print selected tabs:
 ---++ PublishPlugin
 If you want to use _PublishPlugin_ to publish a whole web, there are some changes to be made.
    * configure _PublishPlugin_: Tell _PublishPlugin_ to use prince; change ={PublishPlugin}{PDFCmd}= to something like this (*change directories* according to your installation):<pre>
-/usr/bin/prince -i html5 -o %%NOP%FILE|F% %%NOP%FILES|F% -s /var/www/qwiki/pub/System/MAPrinceModPlugin/maprince.css
+/usr/bin/prince -i html5 -o %%NOP%FILE|F% %%NOP%FILES|F% -s /var/www/qwiki/pub/System/MAPrinceModPlugin/maprince.css --script=/var/www/qwiki/pub/System/JQueryPlugin/jquery-2.1.3.js --script=/var/www/qwiki/pub/System/MAPrinceModPlugin/maprince.js
 </pre>
    * configure _KVPPlugin_: Make sure the line ='uncontrolled' => 1= is present in ={Extensions}{KVPPlugin}{uncontrolledRow}=; your configuration could look like this:<pre>
 {
