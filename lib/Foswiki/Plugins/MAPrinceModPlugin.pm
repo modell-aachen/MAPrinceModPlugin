@@ -147,7 +147,8 @@ sub completePageHandler {
     my $tokenFile = new File::Temp(DIR => $modactmpDir, TEMPLATE => "${token}XXXX", SUFFIX => '.token', UNLINK => 1);
 
     # create token and cookies
-    my $security = $Foswiki::Plugins::SESSION->getCGISession()->id() . $token . rand();
+    my $cgi = $Foswiki::Plugins::SESSION->getCGISession();
+    my $security = ($cgi ? $cgi->id() : '') . $token . rand();
     my $cuid = Foswiki::Func::getCanonicalUserID();
     my $tokenContent = "User:$cuid\nSecurity:$security";
     if($Foswiki::UNICODE) {
