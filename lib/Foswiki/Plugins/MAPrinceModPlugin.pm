@@ -360,7 +360,7 @@ sub _restPrinceGet {
     }
 
     my $tokenContent = Foswiki::Func::readFile($tokenFile);
-    if($tokenContent =~ m#^Security:$security$#m && $tokenContent =~ m#^User:(.*)#m) {
+    if($tokenContent =~ m#^Security:\Q$security\E$#m && $tokenContent =~ m#^User:(.*)#m) {
         $user = $1;
     } else {
         $writeError->($shortPath, "Token/Security does not match");
