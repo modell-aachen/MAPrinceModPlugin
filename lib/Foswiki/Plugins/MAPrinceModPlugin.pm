@@ -156,8 +156,16 @@ sub completePageHandler {
     }
     print $tokenFile $tokenContent;
     close $tokenFile;
+
     my $domain = Foswiki::Func::getUrlHost();
-    $domain =~ s#https?://##;
+    $domain =~ s#^https?://##;
+    # if this is not a valid domain, we need to rewrite
+    unless ($domain =~ m#\.#) {
+        my $altDomain = $Foswiki::cfg{Extensions}{MAPrinceModPlugin}{altDomain} || '127.0.0.1';
+        $_[0] =~ s#(\<base href="https?://(?:www\.)?)$domain#$1$altDomain#g;
+        $domain = $altDomain;
+    }
+
     my $cookieSecurity = "security=$security;Domain=$domain";
     my $cookieToken = "tokenFile=$tokenFile;Domain=$domain";
 
@@ -175,8 +183,7 @@ sub completePageHandler {
 
     # create prince command
     my $session = $Foswiki::Plugins::SESSION;
-    my $baseurl = Foswiki::Func::getScriptUrl('MAPrinceModPlugin', 'getPrince', 'rest');
-    $baseurl = 'https://127.0.0.1:8085';
+    my $baseurl = $domain;
     my $princeCmd = $Foswiki::cfg{Extensions}{MAPrinceModPlugin}{PrinceCmd} || '/usr/bin/prince';
     $princeCmd .= ' ' . ($Foswiki::cfg{Extensions}{MAPrinceModPlugin}{PrinceParams} || ' --baseurl %BASEURL|U% -i html5 -o %OUTFILE|F% %INFILE|F% --log=%ERROR|F% --no-local-files %STYLES% %SCRIPTS% %COOKIES%');
     $princeCmd .= ' ' . $Foswiki::cfg{Extensions}{MAPrinceModPlugin}{CustomParams} if $Foswiki::cfg{Extensions}{MAPrinceModPlugin}{CustomParams};

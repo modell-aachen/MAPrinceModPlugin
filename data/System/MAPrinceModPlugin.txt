@@ -108,6 +108,10 @@ If you want to use _PublishPlugin_ to publish a whole web, there are some change
       * =PUBLISHPAGES=: Numbering format, one of =Consecutive=, =Separate=, =All=; defaults to =Consecutive=.
       * =EXPORTTOPICLIST=: List (_TML_ could be =%%NOP%SOLRSEARCH{...}%=) of topics to publish; defaults to all approved pages in selected web.
 
+---++ Invalid domains
+
+Price requires the domain to be valid. Unfortunately many _shortcuts_ do not satisfy this requirement, eg. a domain _must_ contain a dot, so http://qwiki/... is invalid. For such domains you can set an alternative domain in configure ={Extensions}{MAPrinceModPlugin}{altDomain}=. The wiki must be reachable under this domain.
+
 ---++ Installation Instructions
 Install GenPDFPrincePlugin and this Plugin.
 <br />
