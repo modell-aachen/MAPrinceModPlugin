@@ -326,7 +326,7 @@ sub _restPrinceGet {
     my $shortPath;
 
     my $writeError = sub {
-        my ($error) = @_;
+        my ($shortPath, $error) = @_;
 
         my $user = Foswiki::Func::getCanonicalUserID();
 
