@@ -161,7 +161,15 @@ sub completePageHandler {
     $domain =~ s#^https?://##;
     # if this is not a valid domain, we need to rewrite
     unless ($domain =~ m#\.#) {
-        my $altDomain = $Foswiki::cfg{Extensions}{MAPrinceModPlugin}{altDomain} || '127.0.0.1';
+        my $altDomain = $Foswiki::cfg{Extensions}{MAPrinceModPlugin}{altDomain};
+        unless ( $altDomain ) {
+            if ( $Foswiki::cfg{DefaultUrlHost} =~ m#\.# ) {
+                $altDomain = $Foswiki::cfg{DefaultUrlHost};
+                $altDomain =~ s#^https?://##;
+            } else {
+                $altDomain ||= '127.0.0.1';
+            }
+        }
         $_[0] =~ s#(\<base href="https?://(?:www\.)?)$domain#$1$altDomain#g;
         $domain = $altDomain;
     }

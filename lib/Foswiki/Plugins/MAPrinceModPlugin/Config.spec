@@ -48,7 +48,7 @@ $Foswiki::cfg{Extensions}{MAPrinceModPlugin}{Styles} = ['MAPrinceModPlugin/mapri
 $Foswiki::cfg{Extensions}{MAPrinceModPlugin}{jQuery} = '';
 
 # **STRING**
-# If you call the export with an invalid domain name (eg. =http://qwiki/=) we will use this domain instead. Enter domain only, no =http://=.Defaults to =127.0.0.1=.
+# If you call the export with an invalid domain name (eg. =http://qwiki/=) we will use this domain instead. Enter domain only, no =http://=.Defaults to the =DefaultUrlHost= or =127.0.0.1=.
 $Foswiki::cfg{Extensions}{MAPrinceModPlugin}{altDomain} = '';
 
 1;
