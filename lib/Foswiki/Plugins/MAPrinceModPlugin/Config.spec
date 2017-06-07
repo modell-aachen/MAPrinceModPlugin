@@ -41,7 +41,7 @@ $Foswiki::cfg{Extensions}{MAPrinceModPlugin}{Scripts} = ['MAPrinceModPlugin/mapr
 
 # **PERL**
 # Include these styles when executing prince. Will assume files relative to System's pub-dir.
-$Foswiki::cfg{Extensions}{MAPrinceModPlugin}{Styles} = [];
+$Foswiki::cfg{Extensions}{MAPrinceModPlugin}{Styles} = ['MAPrinceModPlugin/maprince.css'];
 
 # **STRING**
 # Include this jQuery version (defaults to {JQueryPlugin}{JQueryVersion}).
