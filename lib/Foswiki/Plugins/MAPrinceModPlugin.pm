@@ -325,6 +325,20 @@ sub maintenanceHandler {
             return $result;
         }
     });
+    Foswiki::Plugins::MaintenancePlugin::registerCheck("Styles configured", {
+        name => "Styles are configured for PDF print",
+        description => "Styles no longer need to be defined in configure.",
+        check => sub {
+            my $result = { result => 0 };
+            my $styles = $Foswiki::cfg{Extensions}{MAPrinceModPlugin}{Styles};
+            if ( @{$styles}) {
+                $result->{result} = 1;
+                $result->{priority} = $Foswiki::Plugins::MaintenancePlugin::WARN;
+                $result->{solution} = "Please remove the styles configuration by setting {MAPrinceModPlugin}{Styles} to []";
+            }
+            return $result;
+        }
+    });
 }
 
 sub _restPrinceGet {
