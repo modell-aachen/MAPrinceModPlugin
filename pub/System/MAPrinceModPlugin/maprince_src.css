@@ -1,5 +1,5 @@
 html body {
-	font-size: 100% /* to change the site's font size, change .foswikiPage below */
+	font-size: 100%; /* to change the site's font size, change .foswikiPage below */
 	font-family: Arial,Helvetica;
 	font-size:small;
 }
