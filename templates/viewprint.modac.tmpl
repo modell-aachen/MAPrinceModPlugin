@@ -29,6 +29,7 @@
 %TMPL:DEF{"defaultstyle"}%
 %IF{"istopic '%CUSTOMIZINGWEB{default="Custom"}%.AppThemeCSS'" then="<style>@import url('%PUBURLPATH%/%CUSTOMIZINGWEB{default="CUSTOM"}%/AppThemeCSS/apptheme.css');</style>"}%<!-- App Theme -->
 <style>
+@import url('/pub/System/MAPrinceModPlugin/maprince.css');
 @page {
   margin-right: %TMPL:P{"printRightMargin"}%;
   margin-left: %TMPL:P{"printLeftMargin"}%;
