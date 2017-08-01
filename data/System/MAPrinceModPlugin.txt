@@ -121,6 +121,13 @@ In Configure set
 </verbatim>
 so this plugin executes before Prince.
 
+---+++ Usage in SafeWiki environment
+In Configure set
+<verbatim>
+{PluginsOrder} = ...,SafeWikiPlugin,MAPrinceModPlugin,...
+</verbatim>
+so SafeWikiPlugin gets loaded before MAPrinceModPlugin.
+
 %$INSTALL_INSTRUCTIONS%
 
 ---++ Info
