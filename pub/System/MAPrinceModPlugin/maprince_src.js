@@ -61,7 +61,7 @@ jQuery(function() {
             // $this.css('width', maxWidth);
             // if(hyphens) $this.css('hyphens', 'auto');
             style = style.replace(widthRegex, m[1] + maxWidth + m[3]);
-            if(hypens) style = 'hypens:auto;' + style;
+            if(hyphens) style = 'hypens:auto;' + style;
             $this.attr('style', style);
         }
     });
