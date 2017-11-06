@@ -339,6 +339,23 @@ sub maintenanceHandler {
             return $result;
         }
     });
+    Foswiki::Plugins::MaintenancePlugin::registerCheck("MAPrinceModPlugin:pluginorder", {
+        name => "SafeWikiPlugin enabled",
+        description => "SafeWikiPlugin requires being loaded before MAPrinceModPlugin.",
+        check => sub {
+            my $result = { result => 0 };
+            if ( $Foswiki::cfg{Plugins}{SafeWikiPlugin}{Enabled} && $Foswiki::cfg{PluginsOrder} !~ /SafeWikiPlugin.*MAPrinceModPlugin/  ) {
+                my $suggestion = $Foswiki::cfg{PluginsOrder};
+                $suggestion =~ s#,?\s*SafeWikiPlugin\s*##g;
+                $suggestion =~ s#MAPrinceModPlugin#SafeWikiPlugin,MAPrinceModPlugin#;
+                $result->{result} = 1;
+                $result->{priority} = $Foswiki::Plugins::MaintenancePlugin::ERROR;
+                $result->{solution} = "Please insert SafeWikiPlugin to {PluginsOrder} before MAPrinceModPlugin in configure:<br /> =\$Foswiki::cfg{PluginsOrder}= = =$suggestion=";
+            }
+            return $result;
+        }
+    });
+
 }
 
 sub _restPrinceGet {
