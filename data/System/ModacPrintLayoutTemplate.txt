@@ -8,39 +8,19 @@
 
 %TMPL:DEF{"Princeheader"}%%TMPL:P{"top"}%%TMPL:END%
 
-%TMPL:DEF{"Princefooter"}%<div style="text-align:right;font-size:73%;line-height:150%;border-top:1px solid black;">
-%IF{"$'URLPARAM{PUBLISHPAGES}' = 'Consecutive'" then="<div style='float: left;'>$percentTMPL:P{\"printPageCounter\" mode=\"All\"}$percent</div>"}%%SWITCHTMPL{"%CONTENT_LANGUAGE%" prefix="PrincefooterText_"}%
-</div>%TMPL:END%
-%TMPL:DEF{"PrincefooterText_de"}%%MAKETEXT{"This printout is a copy and not subject to updating service.<br />Before use, the respective user has to make sure that the copy is up to date.<br />Print date:"}% %CALC{"$FORMATTIME($TIME(), $year-$month-$day)"}%%TMPL:END%
-%TMPL:DEF{"PrincefooterText_en"}%This printout is a copy and not subject to updating service.<br />Before use, the respective user has to make sure that the copy is up to date.<br />Print date: %CALC{"$FORMATTIME($TIME(), $year-$month-$day)"}%%TMPL:END%
-%TMPL:DEF{"PrincefooterText_default"}%%MAKETEXT{"This printout is a copy and not subject to updating service.<br />Before use, the respective user has to make sure that the copy is up to date.<br />Print date:"}% %CALC{"$FORMATTIME($TIME(), $year-$month-$day)"}%%TMPL:END%
+%TMPL:DEF{"Princefooter"}%<div style="text-align:right;font-size:73%;line-height:150%;border-top:1px solid black;"><div style='float: left;'>%TMPL:P{"printAllPagesCounter"}%</div>%TMPL:P{"PrincefooterText"}%</div>%TMPL:END%
 
-%TMPL:DEF{"printPageCounter"}%
-%SWITCHTMPL{"%CONTENT_LANGUAGE%" prefix="print%mode%PagesCounter_"}%
-%TMPL:END%
+%TMPL:DEF{"PrincefooterText"}%%MAKETEXT{"This printout is a copy and not subject to updating service.<br />Before use, the respective user has to make sure that the copy is up to date.<br />Print date:"}% %CALC{"$FORMATTIME($TIME(), $year-$month-$day)"}%%TMPL:END%
 
 %{ 'count all pages as one file'-mode. Default for single topics. }%
-%TMPL:DEF{"printAllPagesCounter_default"}%%MAKETEXT{"Page <span style='white-space: nowrap'>[_1] of [_2]</span>" args="<span class='pdfPage'></span>,<span class='pdfPages'></span>"}%%TMPL:END%
-%TMPL:DEF{"_printAllPagesCounter_default"}%%MAKETEXT{"Page"}% <span style="white-space: nowrap"><span class='pdfPage'></span> %MAKETEXT{"of"}% <span class='pdfPages'></span></span>%TMPL:END%
-%TMPL:DEF{"printAllPagesCounter_de"}%Seite <span style="white-space: nowrap"><span class='pdfPage'></span> von <span class='pdfPages'></span></span>%TMPL:END%
-%TMPL:DEF{"printAllPagesCounter_en"}%Page <span style="white-space: nowrap"><span class='pdfPage'></span> of <span class='pdfPages'></span></span>%TMPL:END%
-
-%{ 'restart numbering for each topic'-mode. }%
-%TMPL:DEF{"printSeparatePagesCounter_default"}%%MAKETEXT{"Page <span style='white-space: nowrap'>[_1] of [_2]</span>" args="<span class='pdfPage'></span>,<a href='#pdfEnd' class='pdfLink'></a>"}%%TMPL:END%
-%TMPL:DEF{"printSeparatePagesCounter_de"}%Seite <span style="white-space: nowrap"><span class='pdfPage'></span> von <a href='#pdfEnd' class='pdfLink'></a></span>%TMPL:END%
-%TMPL:DEF{"printSeparatePagesCounter_en"}%Page <span style="white-space: nowrap"><span class='pdfPage'></span> of <a href='#pdfEnd' class='pdfLink'></a></span>%TMPL:END%
-
-%{ 'print range for each topic'-mode for consecutive numbering. }%
-%TMPL:DEF{"printConsecutivePagesCounter_default"}%%MAKETEXT{"Pages <span style='white-space: nowrap'>[_1] to [_2]</span>" args="<a href='#pdfStart' class='pdfLink'></a>,<a href='#pdfEnd' class='pdfLink'></a>"}%%TMPL:END%
-%TMPL:DEF{"printConsecutivePagesCounter_de"}%Seiten <span style="white-space: nowrap"><a href='#pdfStart' class='pdfLink'></a> bis <a href='#pdfEnd' class='pdfLink'></a></span>%TMPL:END%
-%TMPL:DEF{"printConsecutivePagesCounter_en"}%Pages <span style="white-space: nowrap"><a href='#pdfStart' class='pdfLink'></a> to <a href='#pdfEnd' class='pdfLink'></a></spanY>%TMPL:END%
+%TMPL:DEF{"printAllPagesCounter"}%%MAKETEXT{"Page <span style='white-space: nowrap'>[_1] of [_2]</span>" args="<span class='pdfPage'></span>,<span class='pdfPages'></span>"}%%TMPL:END%
 
 %{"Optional: Watermark for discussions"}%
 %{"Enter a condition for the watermark, a suitable example would be: context KVPIsDiscussion"}%
 %{"When printing multiple pages you may want to do this: % GETWORKFLOWROW{"approved" web="%WEB%" topic="%TOPIC%"} % != 1"}%
 %TMPL:DEF{"printWatermarkCondition"}%0%TMPL:END%
 %{"Watermark to display, will be layed over the topic (give it transparency!)"}%
-%TMPL:DEF{"printWatermark"}%<img src='%PUBURLPATH%/%SYSTEMWEB%/MAPrinceModPlugin/draft_%IF{"'%CONTENT_LANGUAGE{default="%LANGUAGE%"}%'=~'de'" then="%CONTENT_LANGUAGE{default="%LANGUAGE%"}%" else="en"}%.png' />%TMPL:END%
+%TMPL:DEF{"printWatermark"}%<img src='%PUBURLPATH%/%SYSTEMWEB%/MAPrinceModPlugin/draft_en.png' />%TMPL:END%
 
 %{"Optional: Hide jQuery tabs"}%
 %TMPL:DEF{"modacExtraPrintStyles"}%%TMPL:PREV%
