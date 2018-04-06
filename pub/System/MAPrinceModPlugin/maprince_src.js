@@ -106,7 +106,8 @@ jQuery(function() {
         // $this.css('height', '');
         style = style.replace(heightRegex, m[3]);
         if(new Number(height) < new Number(maxHeight)) {
-            style += 'min-height:' + height;
+            style += 'min-height:' + height + 'px;';
+            Log.warning('setting min-height ' + height);
         }
         $this.attr('style', style);
     });
