@@ -278,6 +278,11 @@ sub completePageHandler {
         basetopic => $baseTopic,
         baseweb => $baseWeb
     );
+
+    if($Foswiki::engine->isa('Foswiki::Engine::CLI')) {
+        $_[0] = $modacpdfFile->filename;
+    }
+
     Foswiki::Func::redirectCgiQuery( undef, $redirect );
 }
 
