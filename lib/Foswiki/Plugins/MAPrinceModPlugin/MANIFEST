@@ -1,6 +1,6 @@
 # Release manifest for MAPrinceModPlugin
 data/System/MAPrinceModPlugin.txt 0664 Documentation
-data/System/MAPrinceModPrintDialog.txt 0664
+data/System/MAPrinceModPrintDialogTemplate.txt 0664
 data/System/ModacPrintLayoutTemplate.txt 0664
 templates/viewprint.modac.tmpl 0664
 lib/Foswiki/Plugins/MAPrinceModPlugin.pm 0444 Perl module
